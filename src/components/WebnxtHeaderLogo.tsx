@@ -22,35 +22,35 @@ export function WebnxtHeaderLogo({ pageClass, onHome }: Props) {
         className="logo-img"
         src={PARMA_HEADER_LOGO}
         alt="Parma Crest Logo"
-        style={{ height: '56px', width: 'auto', objectFit: 'contain', display: 'block' }}
+        style={{ height: 'clamp(52px, 6.2vw, 84px)', width: 'auto', objectFit: 'contain', display: 'block' }}
         decoding="async"
       />
-      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', lineHeight: 1.1 }}>
-        <h2 style={{
-          fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
-          fontSize: '1.75rem',
+      <div className="brand-text" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', lineHeight: 1 }}>
+        <h1 className="brand-text-title" style={{
+          fontFamily: "'Cormorant Garamond', 'Cinzel', 'Playfair Display', Georgia, serif",
+          fontSize: 'clamp(26px, 3.2vw, 40px)',
           fontWeight: 600,
-          letterSpacing: '0.04em',
-          color: '#F4EBDD',
+          letterSpacing: '0.03em',
+          color: '#F5EFE5',
           margin: 0,
           padding: 0,
           lineHeight: 1
         }}>
           Parma
-        </h2>
-        <h4 style={{
-          fontFamily: "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
-          fontSize: '0.95rem',
+        </h1>
+        <div className="brand-text-sub" style={{
+          fontFamily: "'Cormorant Garamond', 'Cinzel', 'Playfair Display', Georgia, serif",
+          fontSize: 'clamp(14px, 1.4vw, 19px)',
           fontStyle: 'italic',
           fontWeight: 400,
-          color: 'rgba(244, 235, 221, 0.85)',
+          color: '#C49A52',
           margin: 0,
           marginTop: '2px',
           padding: 0,
-          lineHeight: 1
+          lineHeight: 1.2
         }}>
           in Little Washington.
-        </h4>
+        </div>
       </div>
     </a>
   )
