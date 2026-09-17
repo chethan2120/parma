@@ -1,0 +1,96 @@
+/* ══════════════════════════════════════════════════════════════
+   FAQ — Terracotta & Antique Gold
+══════════════════════════════════════════════════════════════ */
+.faq-section {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(198, 156, 109, 0.1), transparent 70%),
+    #faf6f0;
+  padding: clamp(48px, 10vw, 120px) clamp(16px, 6vw, 80px);
+  border-bottom: 1px solid var(--parma-border-gold);
+}
+
+.faq-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.faq-heading-block {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-heading {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(44px, 5vw, 68px);
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: #3b1812;
+}
+
+.faq-subtitle { text-align: center; }
+
+.faq-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(198, 156, 109, 0.25);
+  box-shadow: 0 8px 24px rgba(59, 24, 18, 0.04);
+  transition: border-color 0.25s ease;
+}
+
+.faq-item:hover {
+  border-color: #c69c6d;
+}
+
+.faq-trigger {
+  width: 100%;
+  padding: 22px clamp(18px, 4vw, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-q {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(18px, 2.2vw, 22px);
+  color: #220c08;
+  line-height: 1.35;
+}
+
+.faq-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.faq-icon--open { transform: rotate(45deg); }
+
+.faq-answer {
+  padding: 0 clamp(18px, 4vw, 30px) 26px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4a342e;
+}

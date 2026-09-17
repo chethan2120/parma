@@ -1,0 +1,25 @@
+/*.simplebar {
+	overflow-y: scroll;
+}
+*/
+
+
+.scroll-sections {
+ 
+  height: 216px;
+}
+
+.simplebar-scroll-content{
+	width:110% !important;
+}
+
+.simplebar-content {
+    padding: 0 8px;
+}
+
+.simplebar-track .simplebar-scrollbar{
+	background:#472400;
+	width:4px;
+}
+
+

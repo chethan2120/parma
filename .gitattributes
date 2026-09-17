@@ -1,0 +1,10 @@
+## Disable Git LFS filters for binary assets.
+## Vercel builds must have the real binaries in the repo (not LFS pointer files).
+*.mp4 -filter -diff -merge -text
+*.gif -filter -diff -merge -text
+*.png -filter -diff -merge -text
+*.jpg -filter -diff -merge -text
+*.jpeg -filter -diff -merge -text
+*.webp -filter -diff -merge -text
+*.jfif -filter -diff -merge -text
+

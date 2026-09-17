@@ -1,0 +1,910 @@
+/* ══════════════════════════════════════════════════════════════
+   CASE STUDIES / SERVICES SHOWCASE
+══════════════════════════════════════════════════════════════ */
+#services-showcase {
+  background: linear-gradient(180deg, #2a0f0b 0%, #1f0b07 100%);
+  padding-top: 28px;
+  border-top: 1px solid var(--parma-border-gold);
+}
+
+/* Center Our Work heading */
+#services-showcase .process-heading-block {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#services-showcase .process-heading-block .section-heading-xl {
+  width: 100%;
+}
+
+.services-wrapper {
+  position: relative;
+  width: min(86%, 1440px);
+  margin: 0 auto;
+}
+
+.home-about {
+  padding: 20px 0 16px;
+}
+
+.home-about-heading {
+  text-align: center;
+}
+
+.home-about-video {
+  width: min(86%, 1440px);
+  margin: 16px auto 38px;
+}
+
+.home-about-video-inner {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 21 / 9;
+  background: #3b1812;
+  border: 1px solid rgba(198, 156, 109, 0.3);
+}
+
+.home-about-video-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.home-about-video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 320px at 22% 40%, rgba(198, 156, 109, 0.15), transparent 58%),
+    radial-gradient(760px 300px at 78% 55%, rgba(74, 31, 24, 0.2), transparent 60%),
+    linear-gradient(180deg, rgba(42, 15, 11, 0.3) 0%, rgba(31, 11, 7, 0.7) 100%);
+  pointer-events: none;
+}
+
+/* ── Our Work: drag carousel (reference image) ─────────────── */
+#services-showcase .services-wrapper {
+  padding: 14px 0 72px;
+}
+
+#services-showcase .owc {
+  position: relative;
+  height: min(640px, 78vh);
+  min-height: 520px;
+  /* Only top-right corner more rounded (other 3 unchanged) */
+  border-radius: 44px 96px 44px 44px;
+  touch-action: pan-y;
+  user-select: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* subtle outer rim like reference */
+#services-showcase .owc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  pointer-events: none;
+  z-index: 1;
+}
+
+#services-showcase .owc-card--active {
+  cursor: grab;
+}
+
+#services-showcase .owc.owc--grabbing .owc-card--active {
+  cursor: grabbing;
+}
+
+#services-showcase .owc-stack {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#services-showcase .owc-stack-card {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+  transform: translate3d(-56px, 0, 0);
+  opacity: 0.9;
+}
+
+#services-showcase .owc-stack-card:nth-child(1) { transform: translate3d(-84px, 0, 0); opacity: 0.28; }
+#services-showcase .owc-stack-card:nth-child(2) { transform: translate3d(-64px, 0, 0); opacity: 0.36; }
+#services-showcase .owc-stack-card:nth-child(3) { transform: translate3d(-44px, 0, 0); opacity: 0.44; }
+
+#services-showcase .owc-card {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(1200px 700px at 78% 50%, rgba(139, 92, 246, 0.26), rgba(59, 130, 246, 0.22) 20%, rgba(34, 197, 94, 0.16) 34%, transparent 62%),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(4, 4, 4, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 34px 110px rgba(0, 0, 0, 0.65),
+    0 12px 30px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  visibility: visible;
+  /* visibility 0s: instant show when card becomes visible; */
+  /* these done by Daksh Sharma */
+  /* opacity handles the fade */
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), opacity 320ms ease;
+  pointer-events: none;
+}
+
+#services-showcase .owc-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(900px 420px at 18% 25%, rgba(255, 255, 255, 0.06), transparent 58%);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#services-showcase .owc-card--active {
+  pointer-events: auto;
+  /* will-change only on active card; removed from spec to avoid compositing ALL cards */
+  will-change: transform;
+}
+
+#services-showcase .owc-card--active:hover {
+  transform: translate3d(0, 0, 0);
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.7),
+    0 14px 34px rgba(0, 0, 0, 0.35);
+}
+
+#services-showcase .owc-card--off {
+  /* these done by Daksh Sharma */
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  /* Delay visibility until after opacity fades out (320ms), so it's already invisible before GPU layer is freed */
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), opacity 320ms ease, visibility 0s 320ms;
+  transform: translate3d(calc(var(--ow-delta) * 90px), 0, 0) scale(0.96);
+}
+
+#services-showcase .owc-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(1100px 600px at 84% 50%, rgba(139, 92, 246, 0.55), transparent 58%),
+    radial-gradient(980px 520px at 74% 48%, rgba(59, 130, 246, 0.55), transparent 62%),
+    radial-gradient(920px 520px at 60% 56%, rgba(34, 197, 94, 0.32), transparent 64%);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#services-showcase .owc-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(320px, 0.98fr) minmax(520px, 1.02fr);
+  gap: 36px;
+  align-items: center;
+  padding: 56px 56px 64px;
+  overflow: hidden;
+  /* Content fades in when card becomes active; hidden on adjacent/off cards to prevent ghost text overlap */
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+/* Only the active card shows its content — adjacent cards appear as dark depth panels */
+#services-showcase .owc-card--active .owc-inner {
+  opacity: 1;
+  transition: opacity 220ms ease 100ms; /* slight delay so card moves into place first */
+}
+
+#services-showcase .owc-company-logo {
+  display: block;
+  position: static;
+  max-width: 120px;
+  max-height: 72px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  opacity: 0.96;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Dark mark logos (e.g. Kota) render white on the dark card, matching the original design. */
+#services-showcase .owc-company-logo--invert {
+  filter: brightness(0) invert(1);
+  opacity: 0.94;
+}
+
+/* Selected logos keep the same max size, with a compact white plate for contrast. */
+#services-showcase .owc-company-logo--white-bg {
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #ffffff;
+  filter: none;
+  opacity: 1;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+}
+
+#services-showcase .owc-left {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+  padding-top: 0;
+}
+
+@media (max-width: 1200px) {
+  #services-showcase .owc-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 40px 28px 46px;
+  }
+
+  #services-showcase .owc-company-logo {
+    max-width: min(110px, 42vw);
+    max-height: 64px;
+  }
+
+  #services-showcase .owc-left {
+    gap: 20px;
+  }
+
+  #services-showcase .owc-metric-num {
+    font-size: clamp(54px, 8vw, 92px);
+  }
+}
+
+#services-showcase .owc-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.72);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+#services-showcase .owc-brand-name {
+  position: relative;
+}
+
+#services-showcase .owc-brand-name::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 52px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.55), rgba(34, 197, 94, 0.3), rgba(168, 85, 247, 0.5));
+  opacity: 0.7;
+}
+
+#services-showcase .owc-brand-mark {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+#services-showcase .owc-metric-num {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: clamp(64px, 6.6vw, 118px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: transparent;
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.95) 0%, rgba(168, 85, 247, 0.95) 55%, rgba(236, 72, 153, 0.92) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Tagline mode (replaces numeric metric) */
+#services-showcase .owc-metric-num.owc-metric-tagline {
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  max-width: 28ch;
+  word-break: break-word;
+}
+
+#services-showcase .owc-metric-copy {
+  max-width: 26ch;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+#services-showcase .owc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 44ch;
+}
+
+#services-showcase .owc-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  /* Removed backdrop-filter: each blur creates a compositor layer — with 4 tags × 17+ cards
+     this was creating 68+ compositor layers, heavily degrading scroll/transition performance.
+     Slightly more opaque bg compensates for the missing blur visually. */
+  background: rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.82);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+#services-showcase .owc-card--active .owc-tag {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(0, 0, 0, 0.26);
+}
+
+#services-showcase .owc-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#services-showcase .owc-preview {
+  position: relative;
+  width: min(900px, 100%);
+  aspect-ratio: 16 / 9;
+  border-radius: 22px 56px 22px 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.32);
+}
+
+#services-showcase .owc-preview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(680px 260px at 20% 20%, rgba(255, 255, 255, 0.55), transparent 55%);
+  opacity: 0.45;
+  mix-blend-mode: screen;
+}
+
+#services-showcase .owc-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.96;
+  transform: scale(1.0);
+}
+
+#services-showcase .owc-card--active:hover .owc-preview img {
+  transform: scale(1.02);
+  transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#services-showcase .owc-arrow {
+  position: absolute;
+  bottom: 26px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  /* Removed backdrop-filter to avoid extra compositor layer on a frequent-interaction element */
+  background: rgba(0, 0, 0, 0.55);
+  color: rgba(255, 255, 255, 0.72);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 220;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #services-showcase .owc-card,
+  #services-showcase .owc-inner,
+  #services-showcase .owc-cta,
+  #services-showcase .owc-preview img {
+    transition: none !important;
+  }
+}
+
+#services-showcase .owc-arrow:hover {
+  border-color: rgba(255, 255, 255, 0.26);
+  background: rgba(0, 0, 0, 0.42);
+  transform: translateY(-2px);
+}
+
+#services-showcase .owc-arrow--left { left: 26px; }
+#services-showcase .owc-arrow--right { right: 26px; }
+
+#services-showcase .owc-arrow::before {
+  content: '›';
+  font-size: 22px;
+  line-height: 1;
+  transform: translateX(1px);
+}
+
+#services-showcase .owc-arrow--left::before {
+  content: '‹';
+  transform: translateX(-1px);
+}
+
+@media (max-width: 980px) {
+  #services-showcase .owc-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 28px 24px 74px;
+  }
+  #services-showcase .owc {
+    height: auto;
+    min-height: 620px;
+  }
+  #services-showcase .owc-preview {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 16px 28px 16px 16px;
+  }
+  #services-showcase .owc-stack {
+    display: none;
+  }
+  #services-showcase .owc-company-logo {
+    position: static;
+    max-width: min(100px, 46vw);
+    max-height: 56px;
+    margin: 0;
+    opacity: 0.96;
+  }
+
+  #services-showcase .owc-left {
+    padding-top: 0;
+    gap: 16px;
+  }
+  #services-showcase .owc-brand {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+  #services-showcase .owc-metric-num.owc-metric-tagline {
+    font-size: clamp(30px, 8.2vw, 44px);
+    line-height: 1.04;
+    max-width: 100%;
+  }
+  #services-showcase .owc-tags {
+    max-width: 100%;
+    gap: 8px;
+  }
+  #services-showcase .owc-tag {
+    font-size: 11px;
+    padding: 7px 11px;
+  }
+  #services-showcase .owc-arrow {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    top: auto;
+    bottom: 18px;
+    transform: none;
+  }
+  #services-showcase .owc-arrow:hover {
+    transform: translateY(-2px);
+  }
+  #services-showcase .owc-card--off {
+    /* these done by Daksh Sharma */
+    opacity: 0 !important;
+    transform: translate3d(0, 0, 0) scale(1) !important;
+    pointer-events: none !important;
+  }
+  #services-showcase .owc-card--mobile {
+    /* these done by Daksh Sharma */
+    transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease;
+  }
+}
+
+/* ── Individual stacking card ─────────────────────────────── */
+#services-showcase .service-card {
+  position: relative;
+  min-height: 88vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #090909 0%, #1F0F0A 100%);
+  border-radius: 32px;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  align-items: flex-end;
+  padding: 72px 72px 88px;
+  cursor: pointer;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  width: 100%;
+  flex: none;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.14);
+}
+
+/* ── Our Work: reference-video layout ─────────────────────── */
+#services-showcase .ow-card {
+  align-items: stretch;
+  padding: 56px 56px 64px;
+  border-radius: 36px;
+}
+
+#services-showcase .ow-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(1200px 520px at 78% 52%, var(--ow-accent), transparent 58%),
+    radial-gradient(920px 420px at 80% 46%, rgba(255, 255, 255, 0.06), transparent 62%);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#services-showcase .ow-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(360px, 0.98fr) minmax(520px, 1.02fr);
+  gap: 36px;
+  align-items: center;
+}
+
+#services-showcase .ow-left {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+#services-showcase .ow-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.78);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+#services-showcase .ow-brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+#services-showcase .ow-metric-num {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: clamp(64px, 6.6vw, 118px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: rgba(142, 178, 255, 0.92);
+}
+
+#services-showcase .ow-metric-copy {
+  max-width: 26ch;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+#services-showcase .ow-cta {
+  width: fit-content;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.82);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#services-showcase .ow-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#services-showcase .ow-preview {
+  width: min(720px, 100%);
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.32);
+}
+
+#services-showcase .ow-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.96;
+}
+
+#services-showcase .ow-nav {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+#services-showcase .ow-nav-arrow {
+  position: absolute;
+  bottom: 26px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+#services-showcase .ow-nav-arrow--left { left: 26px; }
+#services-showcase .ow-nav-arrow--right { right: 26px; }
+
+#services-showcase .service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 0% 100%,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 65%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+#services-showcase .service-card:hover {
+  box-shadow: 0px 30px 64px rgba(0, 0, 0, 0.42);
+}
+
+.process-card,
+.pkg-card,
+.enterprise-card,
+.testi-card {
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.process-card:hover,
+.pkg-card:hover,
+.enterprise-card:hover,
+.testi-card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.process-card:hover,
+.pkg-card:hover {
+  box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.12);
+}
+
+.enterprise-card:hover,
+.testi-card:hover {
+  box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.16);
+}
+
+/* ── Image reveal layer ───────────────────────────────────── */
+.card-image-reveal {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.card-image-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.42) 55%,
+    rgba(0, 0, 0, 0.84) 100%
+  );
+  z-index: 1;
+}
+
+.card-image-reveal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#services-showcase .service-card:hover .card-image-reveal {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Glare overlay ────────────────────────────────────────── */
+.glare-effect {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* ── Typography content ───────────────────────────────────── */
+.card-content {
+  position: relative;
+  z-index: 3;
+  max-width: 960px;
+  width: 100%;
+}
+
+#services-showcase .cs-meta {
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#services-showcase .service-card:hover .cs-meta {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+#services-showcase .cs-desc {
+  color: rgba(255, 255, 255, 0.42);
+  transition: color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#services-showcase .service-card:hover .cs-desc {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+#services-showcase .cs-stat-num {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#services-showcase .service-card:hover .cs-stat-num {
+  color: #fff;
+}
+
+#services-showcase .cs-stat-label {
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#services-showcase .service-card:hover .cs-stat-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── CTA Button ───────────────────────────────────────────── */
+.cs-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition:
+    background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#services-showcase .service-card:hover .cs-cta {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+/* ── Touch / coarse pointer: images always visible ─────────── */
+@media (hover: none), (pointer: coarse) {
+  .card-image-reveal {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-wrapper {
+    width: calc(100% - (var(--shell-gutter) + var(--shell-gutter)));
+  }
+}
+
+.cs-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 16px;
+}
+.cs-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: clamp(52px, 8.8vw, 128px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  margin: 0 0 24px;
+}
+.cs-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 40px;
+  max-width: 560px;
+}
+.cs-stats {
+  display: flex;
+  gap: 56px;
+}
+.cs-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cs-stat-num {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 3.3vw, 48px);
+  color: #fff;
+  line-height: 1;
+}
+.cs-stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+}

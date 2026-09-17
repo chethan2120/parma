@@ -1,0 +1,12 @@
+selenium==4.21.0
+webdriver-manager==4.0.1
+beautifulsoup4==4.12.3
+lxml==5.2.1
+fastapi
+uvicorn[standard]
+groq
+chromadb
+sentence-transformers
+langchain
+langchain-community
+python-dotenv

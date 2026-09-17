@@ -1,0 +1,472 @@
+/* Parma About Page - Luxury Editorial Terracotta & Gold Styling */
+
+.ab-root {
+  min-height: 100vh;
+  background-color: var(--parma-bg-parchment);
+  color: var(--parma-text-dark);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.ab-header {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+  padding: 0 clamp(20px, 4vw, 48px);
+  background: rgba(36, 20, 15, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--parma-border-gold);
+}
+
+.ab-main {
+  padding-top: 0;
+}
+
+/* ── Hero Statement ───────────────────────────────────────── */
+.ab-hero-editorial {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 88px 32px 48px;
+  text-align: center;
+}
+
+.ab-kicker {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: #B89052;
+}
+
+.ab-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: #24140F;
+  margin-bottom: 24px;
+}
+
+.ab-hero-lead {
+  font-size: 1.2rem;
+  line-height: 1.68;
+  color: #4a342e;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* ── Dominant Media ───────────────────────────────────────── */
+.ab-dominant-media {
+  max-width: 1240px;
+  margin: 0 auto 80px;
+  padding: 0 32px;
+}
+
+.ab-media-frame {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  min-height: 380px;
+  max-height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(184, 144, 82, 0.35);
+  box-shadow: 0 20px 48px rgba(36, 20, 15, 0.12);
+}
+
+.ab-media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ab-media-overlay-card {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  max-width: 440px;
+  background: rgba(36, 20, 15, 0.88);
+  backdrop-filter: blur(12px);
+  padding: 24px 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(184, 144, 82, 0.4);
+}
+
+.ab-media-overlay-card span {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #B89052;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.ab-media-overlay-card p {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #F4EBDD;
+  margin: 0;
+}
+
+/* ── Storytelling ─────────────────────────────────────────── */
+.ab-story-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 60px 32px 100px;
+}
+
+.ab-story-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .ab-story-row {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.ab-sub-kicker {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #CA6641;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.ab-story-copy h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.6vw, 3rem);
+  font-weight: 400;
+  color: #24140F;
+  margin-bottom: 20px;
+}
+
+.ab-story-copy p {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: #4a342e;
+  margin-bottom: 16px;
+}
+
+.ab-story-image {
+  width: 100%;
+  height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(184, 144, 82, 0.3);
+  box-shadow: 0 16px 40px rgba(36, 20, 15, 0.1);
+}
+
+.ab-story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Four Worlds Grid ─────────────────────────────────────── */
+.ab-worlds-section {
+  background: linear-gradient(145deg, #2A1712 0%, #24140F 60%, #1a0805 100%);
+  color: #F4EBDD;
+  padding: 96px 32px;
+  border-top: 1px solid rgba(184, 144, 82, 0.3);
+}
+
+.ab-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.ab-worlds-head {
+  max-width: 640px;
+  margin-bottom: 60px;
+}
+
+.ab-worlds-head .ab-sub-kicker {
+  color: #B89052;
+}
+
+.ab-worlds-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 300;
+  color: #F4EBDD;
+  margin: 8px 0 16px;
+}
+
+.ab-worlds-head p {
+  font-size: 1.1rem;
+  color: #E9DCC8;
+}
+
+.ab-worlds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+}
+
+.ab-world-card {
+  background: rgba(36, 20, 15, 0.6);
+  border: 1px solid rgba(184, 144, 82, 0.25);
+  padding: 36px 28px;
+  border-radius: 18px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.ab-world-card:hover {
+  transform: translateY(-4px);
+  border-color: #B89052;
+}
+
+.ab-world-num {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #CA6641;
+  margin-bottom: 14px;
+}
+
+.ab-world-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: #F4EBDD;
+}
+
+.ab-world-card p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #E9DCC8;
+  margin: 0;
+}
+
+/* ── Leadership Section ───────────────────────────────────── */
+.ab-leadership-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 96px 32px;
+}
+
+.ab-leadership-head {
+  max-width: 640px;
+  margin-bottom: 60px;
+}
+
+.ab-leadership-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 300;
+  color: #24140F;
+  margin: 8px 0 12px;
+}
+
+.ab-leadership-head p {
+  font-size: 1.1rem;
+  color: #4a342e;
+}
+
+.ab-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.ab-team-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(36, 20, 15, 0.08);
+  border: 1px solid rgba(184, 144, 82, 0.3);
+}
+
+.ab-team-photo {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background: #24140F;
+}
+
+.ab-team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.ab-team-photo img[alt*="Thara"] {
+  object-position: 50% 12%;
+}
+
+.ab-team-photo img[alt*="Sadhna"] {
+  object-position: 50% 10%;
+}
+
+.ab-team-card:hover .ab-team-photo img {
+  transform: scale(1.03);
+}
+
+.ab-team-info {
+  padding: 32px;
+}
+
+.ab-team-info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #24140F;
+  margin-bottom: 4px;
+}
+
+.ab-team-role {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #CA6641;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.ab-team-info p {
+  font-size: 0.98rem;
+  line-height: 1.62;
+  color: #4a342e;
+  margin: 0;
+}
+
+/* ── Estate Media ─────────────────────────────────────────── */
+.ab-estate-media {
+  max-width: 1240px;
+  margin: 0 auto 80px;
+  padding: 0 32px;
+}
+
+.ab-estate-frame {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(184, 144, 82, 0.3);
+}
+
+.ab-estate-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ab-estate-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 40px;
+  background: linear-gradient(to top, rgba(36, 20, 15, 0.9) 0%, rgba(36, 20, 15, 0) 100%);
+  color: #F4EBDD;
+}
+
+.ab-estate-caption h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.ab-estate-caption p {
+  font-size: 0.98rem;
+  color: #E9DCC8;
+  margin: 0;
+}
+
+/* ── Final CTA ────────────────────────────────────────────── */
+.ab-final-cta {
+  background: linear-gradient(145deg, #2A1712 0%, #24140F 60%, #1a0805 100%);
+  color: #F4EBDD;
+  padding: 96px 32px;
+  text-align: center;
+  border-top: 1px solid rgba(184, 144, 82, 0.3);
+}
+
+.ab-cta-inner {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.ab-cta-inner h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+
+.ab-cta-inner p {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: #E9DCC8;
+  margin-bottom: 36px;
+}
+
+.ab-cta-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ab-btn-primary {
+  padding: 14px 34px;
+  background: linear-gradient(135deg, #CA6641 0%, #B89052 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(202, 106, 65, 0.4);
+  transition: transform 0.22s ease;
+}
+
+.ab-btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.ab-btn-outline {
+  padding: 14px 34px;
+  background-color: transparent;
+  color: #F4EBDD;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid rgba(184, 144, 82, 0.5);
+  cursor: pointer;
+  transition: background 0.22s ease, border-color 0.22s ease;
+}
+
+.ab-btn-outline:hover {
+  border-color: #B89052;
+  background-color: rgba(184, 144, 82, 0.15);
+}

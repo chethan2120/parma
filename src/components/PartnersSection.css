@@ -1,0 +1,277 @@
+.partners-section {
+  background: #24140F;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.partners-section--re {
+  padding: 0;
+  background: #24140F;
+}
+
+.partners-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.partners-dome {
+  /*
+   * Slightly "bleed" the frame left/right so more of the dome is visible,
+   * matching the reference layout preview.
+   */
+  /*
+   * Keep perfectly centered within the section padding so LHS == RHS.
+   * Desktop padding is 80px on both sides => 160px total.
+   */
+  /* Fill the centered, padded .partners-inner so LHS == RHS (100vw ignored the
+     section's 80px padding and pushed the dome off-center to the right). */
+  width: 100%;
+  height: min(560px, 72vh);
+  margin: 0 auto;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 18px 44px -28px rgba(15, 23, 42, 0.22);
+  overflow: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.partners-section--re .partners-dome {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+/* DomeGallery renders multiple fade/blur overlays; disable them for Trusted Partners. */
+.partners-dome .dg-overlay {
+  display: none;
+}
+
+/* Match home “Why Choose Webnxt” (`.section-heading-xl` + image gradient in TSX) */
+.partners-heading {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  /* Allow wrap to avoid clipping at narrow widths / zoom */
+  font-size: clamp(34px, 6.2vw, 92px);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  white-space: normal;
+  text-wrap: balance;
+  margin: 0 0 36px;
+}
+
+.partners-empty {
+  color: #7A635A;
+  font-size: 15px;
+  margin: 0;
+}
+
+.partners-empty code {
+  font-size: 0.92em;
+  background: #F5EFE5;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* ── Infinite carousel: two rows, opposite scroll directions ─── */
+.partners-carousel {
+  width: 100%;
+}
+
+.partners-carousel--dual {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.partners-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  /* Soft fade on left/right edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+}
+
+.partners-carousel-track {
+  display: flex;
+  width: max-content;
+  animation: partners-marquee 52s linear infinite;
+}
+
+/* Second row: same keyframes, reversed — slides the opposite way */
+.partners-carousel-track--reverse {
+  animation-direction: reverse;
+}
+
+.partners-carousel:hover .partners-carousel-track {
+  animation-play-state: paused;
+}
+
+.partners-carousel-row {
+  list-style: none;
+  margin: 0;
+  padding: 0 12px 0 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.partners-logo-slot {
+  flex: 0 0 auto;
+  width: 200px;
+  min-height: 104px;
+  border-radius: 14px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+}
+
+.partners-logo-img {
+  max-width: 100%;
+  max-height: 76px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transform: scale(1.06);
+  transform-origin: center center;
+}
+
+@keyframes partners-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners-carousel--dual {
+    gap: 16px;
+  }
+
+  .partners-carousel-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+  }
+
+  .partners-carousel-track--reverse {
+    animation: none;
+  }
+
+  .partners-carousel-viewport {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .partners-carousel-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+  }
+
+  .partners-carousel-row[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+.partners-section--re .partners-inner {
+  max-width: 100%;
+}
+
+.partners-section--re .partners-heading {
+  margin-bottom: 28px;
+}
+
+@media (max-width: 768px) {
+  .partners-heading {
+    font-size: clamp(38px, 12vw, 72px);
+    line-height: 0.95;
+  }
+
+  .partners-carousel-viewport {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .partners-carousel-track {
+    animation: none;
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+  }
+
+  .partners-carousel-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+  }
+
+  .partners-carousel-row[aria-hidden='true'] {
+    display: none;
+  }
+
+  .partners-logo-slot {
+    width: clamp(132px, 40vw, 168px);
+  }
+}
+
+@media (max-width: 420px) {
+  .partners-heading {
+    font-size: clamp(28px, 9.5vw, 52px);
+    letter-spacing: -0.03em;
+  }
+}
+
+@media (max-width: 900px) {
+  .partners-section {
+    padding: 56px 24px 64px;
+  }
+
+  .partners-dome {
+    width: 100%;
+    height: min(460px, 64vh);
+    border-radius: 24px;
+  }
+
+  .partners-logo-slot {
+    width: 168px;
+    min-height: 92px;
+    padding: 10px 12px;
+  }
+
+  .partners-logo-img {
+    max-height: 64px;
+    transform: scale(1.04);
+  }
+
+  .partners-carousel-track {
+    animation-duration: 40s;
+  }
+}

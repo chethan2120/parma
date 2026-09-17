@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Parma in Little Washington">
+  <defs>
+    <linearGradient id="parmaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b1812" />
+      <stop offset="60%" stop-color="#24140F" />
+      <stop offset="100%" stop-color="#1a0805" />
+    </linearGradient>
+    <linearGradient id="parmaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0BB8F" />
+      <stop offset="50%" stop-color="#B89052" />
+      <stop offset="100%" stop-color="#9E7547" />
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#parmaBg)" stroke="url(#parmaGold)" stroke-width="2" />
+  <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(184, 144, 82, 0.3)" stroke-width="1" stroke-dasharray="2 2" />
+  <text x="32" y="42" font-family="'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="34" font-weight="600" fill="#F4EBDD" text-anchor="middle">P</text>
+  <polygon points="32,8 34,12 32,16 30,12" fill="url(#parmaGold)" />
+</svg>
+

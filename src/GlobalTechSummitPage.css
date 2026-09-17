@@ -1,0 +1,544 @@
+.gs-root {
+  min-height: 100vh;
+  background: #F5EFE5;
+  color: #32170F;
+  font-family: 'Inter', sans-serif;
+}
+
+.gs-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 78px;
+  padding: 0 30px;
+  background: rgba(243, 244, 246, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.gs-logo {
+  cursor: pointer;
+  user-select: none;
+}
+
+.gs-main {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 90px 45px;
+}
+
+.gs-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.gs-date {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background-image: linear-gradient(171deg, #C49A52 9.56%, #D2AE6D 57.79%, #CA6641 104.57%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.gs-hero h1 {
+  margin: 12px 0 0;
+  max-width: 700px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(48px, 8vw, 82px);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  text-transform: lowercase;
+}
+
+.gs-hero p {
+  margin: 12px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  color: #7A635A;
+  text-transform: lowercase;
+}
+
+.gs-calendar-btn {
+  border: none;
+  background: none;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #32170F;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.gs-banner {
+  margin-top: 36px;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.gs-banner img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1062 / 455;
+  object-fit: cover;
+}
+
+.gs-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.1);
+}
+
+.gs-banner-pill {
+  position: absolute;
+  left: 36px;
+  bottom: 28px;
+  z-index: 2;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 18px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.gs-speakers-wrap {
+  margin-top: 72px;
+}
+
+.gs-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid #F5EFE5;
+  padding-bottom: 12px;
+}
+
+.gs-head-row h2,
+.gs-agenda-col h2,
+.gs-location h2,
+.gs-form-card h2 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+}
+
+.gs-head-row button {
+  border: none;
+  background: none;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: lowercase;
+  background-image: linear-gradient(149deg, #C49A52 9.56%, #D2AE6D 57.79%, #CA6641 104.57%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  cursor: pointer;
+}
+
+.gs-speakers-grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.gs-speaker img {
+  width: 100%;
+  border-radius: 14px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  filter: saturate(0);
+}
+
+.gs-speaker h3 {
+  margin: 14px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.gs-speaker p {
+  margin: 3px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  color: #7A635A;
+  text-transform: lowercase;
+}
+
+.gs-agenda-grid {
+  margin-top: 108px;
+  display: grid;
+  grid-template-columns: 1fr 477px;
+  gap: 108px;
+}
+
+.gs-agenda-list {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.gs-agenda-item {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 27px;
+}
+
+.gs-time {
+  padding-top: 4px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #EDE2D2;
+}
+
+.gs-agenda-item--active .gs-time {
+  background-image: linear-gradient(156deg, #C49A52 9.56%, #D2AE6D 57.79%, #CA6641 104.57%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.gs-agenda-copy {
+  border-left: 2px solid #F5EFE5;
+  padding-left: 29px;
+}
+
+.gs-agenda-copy h3 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.gs-agenda-copy p {
+  margin: 4px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  color: #7A635A;
+  text-transform: lowercase;
+}
+
+.gs-form-card {
+  background: #fff;
+  border: 1px solid #F5EFE5;
+  border-radius: 36px;
+  box-shadow: 0 22px 28px -6px rgba(19, 91, 236, 0.05), 0 9px 11px -7px rgba(19, 91, 236, 0.05);
+  padding: 55px;
+}
+
+.gs-form-card p {
+  margin: 8px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  color: #7A635A;
+  text-transform: lowercase;
+}
+
+.gs-form-card form {
+  margin-top: 27px;
+  display: grid;
+  gap: 18px;
+}
+
+.gs-form-card label span {
+  display: block;
+  margin: 0 0 8px 5px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #EDE2D2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gs-form-card input,
+.gs-form-card select {
+  width: 100%;
+  border: none;
+  background: #F5EFE5;
+  border-radius: 13px;
+  padding: 18px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  color: #32170F;
+  text-transform: lowercase;
+}
+
+.gs-form-card select {
+  appearance: none;
+}
+
+.gs-form-card button {
+  margin-top: 8px;
+  border: none;
+  border-radius: 13px;
+  padding: 16px 18px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: lowercase;
+  background-image: linear-gradient(166deg, #C49A52 9.56%, #D2AE6D 57.79%, #CA6641 104.57%);
+  cursor: pointer;
+}
+
+.gs-form-card small {
+  margin-top: 8px;
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  color: #EDE2D2;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.gs-location {
+  margin-top: 108px;
+  border-top: 1px solid #F5EFE5;
+  padding-top: 72px;
+  text-align: center;
+}
+
+.gs-location p {
+  margin: 16px auto 0;
+  max-width: 520px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  color: #7A635A;
+  line-height: 1.5;
+  text-transform: lowercase;
+}
+
+.gs-map-wrap {
+  margin-top: 27px;
+  border: 1px solid #F5EFE5;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 360px;
+}
+
+.gs-map-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.1);
+  opacity: 0.65;
+}
+
+.gs-footer {
+  background: #000;
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+  padding: 128px 48px;
+}
+
+.gs-footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.gs-footer-title {
+  margin: 0;
+  max-width: 760px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.gs-footer p {
+  margin: 18px 0 0;
+  color: #a3a3a3;
+  font-size: 24px;
+}
+
+.gs-footer button {
+  border: none;
+  background: #fff;
+  color: #000;
+  border-radius: 999px;
+  padding: 20px 40px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gs-footer-bottom {
+  max-width: 1280px;
+  margin: 49px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid #262626;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #737373;
+  font-size: 14px;
+}
+
+.gs-footer-socials {
+  display: flex;
+  gap: 24px;
+}
+
+.gs-footer-socials a {
+  color: #737373;
+  text-decoration: none;
+}
+
+@media (max-width: 1180px) {
+  .gs-main {
+    padding: 60px 16px;
+  }
+
+  .gs-speakers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gs-agenda-grid {
+    grid-template-columns: 1fr;
+    gap: 54px;
+  }
+}
+
+@media (max-width: 780px) {
+  .gs-header {
+    padding: 0 16px;
+  }
+
+  .gs-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gs-hero p {
+    font-size: 16px;
+  }
+
+  .gs-banner-pill {
+    left: 14px;
+    bottom: 14px;
+    font-size: 13px;
+  }
+
+  .gs-speakers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gs-map-wrap {
+    height: 240px;
+  }
+
+  .gs-form-card {
+    border-radius: 24px;
+    padding: 26px;
+  }
+
+  .gs-footer {
+    padding: 64px 16px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
+  .gs-footer-inner,
+  .gs-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .gs-footer p {
+    font-size: 16px;
+  }
+
+  .gs-footer button {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .gs-main {
+    padding: 44px 12px;
+  }
+
+  .gs-head-row h2,
+  .gs-agenda-col h2,
+  .gs-location h2,
+  .gs-form-card h2 {
+    font-size: 28px;
+    line-height: 1.1;
+  }
+
+  .gs-head-row button {
+    font-size: 16px;
+  }
+
+  .gs-speakers-grid {
+    gap: 18px;
+  }
+
+  .gs-agenda-grid {
+    margin-top: 68px;
+    gap: 32px;
+  }
+
+  .gs-agenda-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .gs-time {
+    padding-top: 0;
+    font-size: 14px;
+  }
+
+  .gs-agenda-copy {
+    border-left: none;
+    padding-left: 0;
+    padding-top: 10px;
+    border-top: 2px solid #F5EFE5;
+  }
+
+  .gs-agenda-copy h3 {
+    font-size: 18px;
+  }
+
+  .gs-form-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .gs-footer {
+    padding: 56px 12px 36px;
+  }
+}

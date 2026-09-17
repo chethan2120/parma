@@ -1,0 +1,359 @@
+.fh-root {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 250;
+  pointer-events: none;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.fh-fab-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+  pointer-events: auto;
+}
+
+.fh-fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.22),
+    0 2px 12px rgba(0, 0, 0, 0.18);
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  transition: transform 0.18s ease, filter 0.18s ease;
+  /* No backdrop-filter here. These FABs are position:fixed and therefore on
+     screen for every scroll frame of every page, so a blurred backdrop meant the
+     compositor re-blurred two regions continuously while the page moved beneath
+     them. The gradient backgrounds below are opaque, so nothing was visible
+     through the blur anyway. */
+  display: grid;
+  place-items: center;
+}
+
+.fh-icon {
+  width: 26px;
+  height: 26px;
+  display: block;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Image-based chatbot icon */
+.fh-icon-img {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+/* Outline icons (e.g. bot) — crisp at FAB size */
+.fh-icon--stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.fh-fab:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.fh-fab--wa {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+.fh-fab--bot {
+  background: linear-gradient(135deg, #2A1712 0%, #24140F 100%);
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
+  border: 1px solid #B89052;
+  box-shadow: 0 10px 30px rgba(36, 20, 15, 0.6);
+}
+
+.fh-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #CA6641;
+  border: 1px solid #F4EBDD;
+  color: #ffffff;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+  padding: 0 6px;
+}
+
+.fh-panel {
+  position: absolute;
+  right: 0;
+  bottom: 128px;
+  width: min(420px, calc(100vw - 28px));
+  height: min(560px, calc(100vh - 160px));
+  background: rgba(36, 20, 15, 0.96);
+  border: 1px solid rgba(184, 144, 82, 0.45);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+  pointer-events: auto;
+  transform: translateY(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.fh-panel--open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
+}
+
+.fh-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(184, 144, 82, 0.2), rgba(36, 20, 15, 0));
+  border-bottom: 1px solid rgba(184, 144, 82, 0.25);
+}
+
+.fh-title-name {
+  color: #F4EBDD;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
+.fh-title-sub {
+  color: #E9DCC8;
+  font-size: 12px;
+  margin-top: 2px;
+  opacity: 0.85;
+}
+
+.fh-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(184, 144, 82, 0.35);
+  background: rgba(36, 20, 15, 0.6);
+  color: #F4EBDD;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.fh-list {
+  height: calc(100% - 52px - 72px);
+  padding: 14px;
+  overflow: auto;
+}
+
+.fh-msg {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.fh-msg--bot {
+  justify-content: flex-start;
+}
+
+.fh-msg--user {
+  justify-content: flex-end;
+}
+
+.fh-bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  white-space: pre-wrap;
+  line-height: 1.45;
+  font-size: 13px;
+}
+
+.fh-msg--bot .fh-bubble {
+  background: rgba(184, 144, 82, 0.12);
+  border: 1px solid rgba(184, 144, 82, 0.3);
+  color: #F4EBDD;
+}
+
+.fh-msg--user .fh-bubble {
+  background: linear-gradient(135deg, #CA6641 0%, #B89052 100%);
+  border: 1px solid rgba(244, 235, 221, 0.3);
+  color: #1A0D08;
+  font-weight: 600;
+}
+
+.fh-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(184, 144, 82, 0.2);
+}
+
+.fh-quick-btn {
+  border: 1px solid rgba(184, 144, 82, 0.35);
+  background: rgba(36, 20, 15, 0.6);
+  color: #F4EBDD;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.fh-quick-btn:hover {
+  border-color: #B89052;
+  background: rgba(184, 144, 82, 0.2);
+}
+
+.fh-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 12px;
+  border-top: 1px solid rgba(184, 144, 82, 0.2);
+  background: rgba(26, 13, 8, 0.8);
+}
+
+.fh-input-wrap {
+  display: grid;
+  grid-template-columns: 1fr 82px;
+  gap: 10px;
+}
+
+.fh-input {
+  height: 44px;
+  border-radius: 14px;
+  padding: 0 14px;
+  border: 1px solid rgba(184, 144, 82, 0.35);
+  background: rgba(36, 20, 15, 0.8);
+  color: #F4EBDD;
+  outline: none;
+}
+
+.fh-input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.fh-send {
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.fh-send:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 520px) {
+  .fh-root {
+    right: 12px;
+    /* Sit clear of the on-screen system nav bar so the FABs don't cover page
+       content twice over. */
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+  .fh-panel {
+    bottom: 120px;
+  }
+  .fh-input-wrap {
+    grid-template-columns: 1fr 78px;
+  }
+
+  /* Two 56px FABs plus a 12px gap ate ~124px of vertical space and sat right on
+     top of body copy. Smaller buttons, tighter stack. */
+  .fh-fab {
+    width: 46px;
+    height: 46px;
+    border-radius: 15px;
+  }
+  .fh-fab-stack {
+    gap: 9px;
+  }
+  .fh-icon {
+    width: 22px;
+    height: 22px;
+  }
+  .fh-icon-img {
+    width: 33px;
+    height: 33px;
+    border-radius: 10px;
+  }
+}
+
+/* Typing Indicator (bouncing dots) */
+.fh-typing {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 6px;
+  min-height: 20px;
+}
+
+.fh-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  animation: fh-bounce 1.2s infinite ease-in-out;
+  display: inline-block;
+}
+
+.fh-typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.fh-typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fh-bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Markdown Rendering Inside Bubbles */
+.fh-bubble strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.fh-bubble span {
+  line-height: 1.5;
+}
+
+

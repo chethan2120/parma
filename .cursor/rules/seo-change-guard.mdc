@@ -1,0 +1,17 @@
+---
+description: Keep SEO updated with every feature/content change
+alwaysApply: true
+---
+
+# SEO Update Rule
+
+Whenever any feature, page, section, or content is changed, update SEO in the same task.
+
+- Update route/page `title`, `description`, and canonical if affected.
+- Update structured data (JSON-LD) to include new services, offers, FAQs, or business details.
+- Update crawl assets when needed: `sitemap.xml`, `robots.txt`, and internal links.
+- Ensure media SEO basics on changed UI: meaningful `alt` text for informative images and non-blocking loading for non-critical assets.
+- Preserve favicon/manifest/meta consistency for mobile and desktop when branding or app icons change.
+- Run build/lint checks after SEO edits and verify no regressions.
+
+Before finalizing any implementation, confirm: "feature/content updated + SEO updated together."

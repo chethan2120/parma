@@ -1,0 +1,422 @@
+/* Parma Real Estate & Countryside Page - Luxury Editorial Terracotta & Gold Styling */
+
+.re-root {
+  min-height: 100vh;
+  background-color: var(--parma-bg-parchment);
+  color: var(--parma-text-dark);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.re-header {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+  padding: 0 clamp(20px, 4vw, 48px);
+  background: rgba(36, 20, 15, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--parma-border-gold);
+}
+
+.re-main {
+  padding-top: 0;
+}
+
+/* ── Architectural Hero ───────────────────────────────────── */
+.re-hero-architectural {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 88px 32px 64px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .re-hero-architectural {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.re-kicker {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #B89052;
+  margin-bottom: 16px;
+}
+
+.re-hero-text h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1.12;
+  color: #24140F;
+  margin-bottom: 24px;
+}
+
+.re-hero-text p {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #4a342e;
+  margin-bottom: 36px;
+}
+
+.re-hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.re-hero-frame {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(184, 144, 82, 0.35);
+  box-shadow: 0 20px 48px rgba(36, 20, 15, 0.12);
+}
+
+.re-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.re-hero-frame:hover .re-hero-img {
+  transform: scale(1.03);
+}
+
+.re-badge-tag {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(36, 20, 15, 0.88);
+  backdrop-filter: blur(12px);
+  padding: 16px 24px;
+  border-radius: 14px;
+  border: 1px solid rgba(184, 144, 82, 0.4);
+}
+
+.re-badge-tag span {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #B89052;
+  text-transform: uppercase;
+}
+
+.re-badge-tag strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #F4EBDD;
+  margin-top: 2px;
+}
+
+/* ── Surroundings Section ─────────────────────────────────── */
+.re-surroundings-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 60px 32px 96px;
+}
+
+.re-section-head {
+  max-width: 720px;
+  margin-bottom: 64px;
+}
+
+.re-section-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  font-weight: 300;
+  color: #24140F;
+  margin: 8px 0 16px;
+}
+
+.re-section-head p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4a342e;
+}
+
+.re-alternating-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.re-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.re-feature-row--reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.re-feature-row--reverse .re-feature-media {
+  order: 2;
+}
+
+@media (max-width: 900px) {
+  .re-feature-row,
+  .re-feature-row--reverse {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .re-feature-row--reverse .re-feature-media {
+    order: 0;
+  }
+}
+
+.re-feature-media {
+  width: 100%;
+  height: 380px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(184, 144, 82, 0.3);
+  box-shadow: 0 16px 40px rgba(36, 20, 15, 0.1);
+}
+
+.re-feature-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.re-sub-kicker {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #CA6641;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.re-feature-copy h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #24140F;
+  margin-bottom: 16px;
+}
+
+.re-feature-copy p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #4a342e;
+  margin-bottom: 24px;
+}
+
+.re-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.re-bullet-list li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 0.98rem;
+  color: #4a342e;
+  font-weight: 500;
+}
+
+.re-bullet-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: #CA6641;
+  font-size: 0.8rem;
+}
+
+.re-text-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #CA6641;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: transform 0.2s ease;
+}
+
+.re-text-link:hover {
+  transform: translateX(4px);
+}
+
+/* ── Interior Teaser ──────────────────────────────────────── */
+.re-interior-teaser {
+  position: relative;
+  max-width: 1240px;
+  margin: 40px auto 80px;
+  padding: 0 32px;
+}
+
+.re-interior-bg {
+  width: 100%;
+  height: 440px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(184, 144, 82, 0.3);
+}
+
+.re-interior-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.re-interior-content {
+  position: absolute;
+  bottom: 40px;
+  left: 64px;
+  max-width: 520px;
+  background: rgba(36, 20, 15, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 36px 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(184, 144, 82, 0.4);
+  color: #F4EBDD;
+}
+
+@media (max-width: 768px) {
+  .re-interior-content {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: -60px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.re-interior-content h2 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #F4EBDD;
+  margin: 8px 0 12px;
+}
+
+.re-interior-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #E9DCC8;
+}
+
+/* ── Buttons & Pathway ────────────────────────────────────── */
+.re-btn-primary {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #CA6641 0%, #B89052 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(202, 106, 65, 0.4);
+  transition: transform 0.22s ease;
+}
+
+.re-btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.re-btn-ghost {
+  padding: 14px 32px;
+  background-color: transparent;
+  color: #CA6641;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 1px solid #CA6641;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.re-btn-ghost:hover {
+  background-color: rgba(202, 106, 65, 0.1);
+}
+
+.re-enquiry-pathway {
+  background: linear-gradient(145deg, #2A1712 0%, #24140F 60%, #1a0805 100%);
+  color: #F4EBDD;
+  padding: 96px 32px;
+  text-align: center;
+  border-top: 1px solid rgba(184, 144, 82, 0.3);
+}
+
+.re-pathway-box {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.re-pathway-box h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.re-pathway-box p {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: #E9DCC8;
+  margin-bottom: 36px;
+}
+
+.re-pathway-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.re-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 32px;
+  background-color: transparent;
+  color: #F4EBDD;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid rgba(184, 144, 82, 0.5);
+  text-decoration: none;
+  transition: background 0.22s ease, border-color 0.22s ease;
+}
+
+.re-btn-secondary:hover {
+  border-color: #B89052;
+  background-color: rgba(184, 144, 82, 0.15);
+}

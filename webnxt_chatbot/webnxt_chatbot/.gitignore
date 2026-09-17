@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Environment
+.env.local
+.env
+
+# ChromaDB vector store (regenerated on startup)
+backend/.chromadb/
+
+# Selenium / scraper
+*.log
+geckodriver.log
+chromedriver.log
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,316 @@
+/* Parma Circular Flip Card Gallery Styling */
+
+.parma-circular-gallery-section {
+  position: relative;
+  width: 100%;
+  height: 980px;
+  background-color: #1a0805;
+  color: #F4EBDD;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(184, 144, 82, 0.3);
+  border-bottom: 1px solid rgba(184, 144, 82, 0.3);
+  user-select: none;
+}
+
+/* Terracotta Plaster Ambient Texture Backdrop */
+.parma-circular-plaster-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(202, 106, 65, 0.22) 0%, transparent 60%),
+    radial-gradient(circle at 20% 20%, rgba(184, 144, 82, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(59, 24, 18, 0.4) 0%, transparent 60%),
+    linear-gradient(145deg, #24140F 0%, #1a0805 100%);
+}
+
+.parma-circular-plaster-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(184, 144, 82, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.35;
+}
+
+/* Decorative Gold Rings in Center */
+.parma-circular-gold-rings {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ring-outer {
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  border-radius: 50%;
+  border: 1px dashed rgba(184, 144, 82, 0.22);
+}
+
+.ring-inner {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 144, 82, 0.15);
+}
+
+/* Central Non-Rotating Typography */
+.parma-circular-center-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 440px;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.parma-center-kicker {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #B89052;
+  margin-bottom: 12px;
+}
+
+.parma-center-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #F4EBDD;
+  margin: 0 0 16px 0;
+}
+
+.parma-center-title span {
+  font-style: italic;
+  color: #CA6641;
+}
+
+.parma-center-cue {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.parma-center-cue span:first-child {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #E9DCC8;
+}
+
+.parma-cue-line {
+  width: 40px;
+  height: 1px;
+  background: #B89052;
+}
+
+/* Rotating Ring Wrapper */
+.parma-circular-ring-wrapper {
+  position: absolute;
+  z-index: 5;
+  width: 0;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Individual Card Node */
+.parma-circular-card-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 124px;
+  height: 164px;
+  margin-left: -62px;
+  margin-top: -82px;
+  transform-origin: center center;
+  cursor: pointer;
+  transition: z-index 0s;
+}
+
+.parma-circular-card-node.is-hovered {
+  z-index: 100 !important;
+}
+
+.parma-circular-card-counter {
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+
+/* 3D Flip Card Container */
+.parma-flip-card-3d {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  border-radius: 14px;
+  border: 1px solid rgba(184, 144, 82, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  transition:
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.parma-circular-card-node:hover .parma-flip-card-3d {
+  transform: scale(1.35);
+  border-color: #B89052;
+  box-shadow: 0 20px 48px rgba(36, 20, 15, 0.6);
+}
+
+.parma-circular-card-node.is-flipped .parma-flip-card-3d {
+  transform: rotateY(180deg) scale(1.35);
+  border-color: #B89052;
+  box-shadow: 0 20px 48px rgba(36, 20, 15, 0.6);
+}
+
+/* Card Faces */
+.parma-card-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 13px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Front Face */
+.parma-card-front {
+  background: #24140F;
+}
+
+.parma-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.parma-card-front-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(36, 20, 15, 0.1) 0%, rgba(36, 20, 15, 0.8) 100%);
+}
+
+.parma-card-front-label {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.parma-card-front-label span {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #F4EBDD;
+  text-transform: uppercase;
+}
+
+/* Back Face */
+.parma-card-back {
+  background: linear-gradient(145deg, #3b1812 0%, #24140F 100%);
+  transform: rotateY(180deg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  border: 1px solid rgba(184, 144, 82, 0.4);
+}
+
+.parma-card-back-tag {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #B89052;
+  text-transform: uppercase;
+}
+
+.parma-card-back-title {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.15;
+  color: #F4EBDD;
+  margin: 2px 0 4px 0;
+}
+
+.parma-card-back-desc {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  line-height: 1.4;
+  color: #E9DCC8;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.parma-card-back-btn {
+  background: #B89052;
+  color: #1a0805;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+/* Responsive Mobile Scaling */
+@media (max-width: 900px) {
+  .parma-circular-gallery-section {
+    height: 720px;
+  }
+
+  .ring-outer {
+    width: 520px;
+    height: 520px;
+  }
+
+  .ring-inner {
+    width: 320px;
+    height: 320px;
+  }
+
+  .parma-circular-card-node {
+    width: 90px;
+    height: 120px;
+    margin-left: -45px;
+    margin-top: -60px;
+    transform: rotate(calc(var(--card-angle, 0deg))) translateY(-250px) !important;
+  }
+
+  .parma-circular-center-content {
+    max-width: 320px;
+  }
+}

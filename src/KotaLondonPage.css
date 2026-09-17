@@ -1,0 +1,533 @@
+.kota-root {
+  min-height: 100vh;
+  background: #F5EFE5;
+  color: #32170F;
+  font-family: 'Inter', sans-serif;
+}
+
+.kota-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 78px;
+  padding: 0 30px;
+  background: rgba(243, 244, 246, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.kota-logo {
+  cursor: pointer;
+  user-select: none;
+}
+
+.kota-main {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 54px 0 0;
+}
+
+.kota-hero-top {
+  padding: 0 180px;
+}
+
+.kota-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 24px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  color: #EDE2D2;
+}
+
+.kota-crumb {
+  border: none;
+  background: none;
+  color: #7A635A;
+  font-size: 15px;
+  text-transform: lowercase;
+  cursor: pointer;
+  padding: 0;
+}
+
+.kota-crumb--active {
+  background-image: linear-gradient(160deg, #C49A52 9.56%, #D2AE6D 57.79%, #CA6641 104.57%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  cursor: default;
+}
+
+.kota-title {
+  margin: 0;
+  max-width: 1008px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(32px, 4.8vw, 68px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: capitalize;
+}
+
+.kota-subtitle {
+  margin: 24px 0 0;
+  max-width: 1008px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(17px, 2vw, 27px);
+  line-height: 1.35;
+  color: #5A2E20;
+  text-transform: lowercase;
+}
+
+.kota-main-image-wrap {
+  position: relative;
+  margin: 36px 180px 0;
+  aspect-ratio: 21 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 28px 56px -13px rgba(0, 0, 0, 0.25);
+}
+
+.kota-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kota-main-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(19, 91, 236, 0.08);
+}
+
+.kota-editorial-grid {
+  display: grid;
+  grid-template-columns: 312px 696px;
+  justify-content: center;
+  gap: 72px;
+  padding: 90px 180px;
+}
+
+.kota-left {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+}
+
+.kota-spec-block h4 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background-image: linear-gradient(175deg, #C49A52 9.56%, #D2AE6D 57.79%, #CA6641 104.57%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.kota-spec-block p {
+  margin: 12px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.kota-spec-block ul {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.kota-spec-block li {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  color: #5A2E20;
+  text-transform: lowercase;
+}
+
+.kota-big-metric {
+  border-top: 1px solid #F5EFE5;
+  padding-top: 37px;
+}
+
+.kota-big-metric-value {
+  font-family: 'Manrope', sans-serif;
+  font-size: 68px;
+  font-weight: 800;
+  line-height: 1;
+  background-image: linear-gradient(164deg, #C49A52 9.56%, #D2AE6D 57.79%, #CA6641 104.57%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.kota-big-metric-label {
+  margin-top: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #7A635A;
+}
+
+.kota-right {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+.kota-copy-block h2 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.kota-copy-block p {
+  margin: 24px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.62;
+  color: #5A2E20;
+  text-transform: lowercase;
+}
+
+.kota-challenge-cards {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.kota-challenge-card {
+  background: #fff;
+  border: 1.125px solid #F5EFE5;
+  border-radius: 9px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.kota-challenge-card img {
+  width: 20px;
+  height: 20px;
+}
+
+.kota-challenge-card span {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.kota-gallery {
+  background: #F5EFE5;
+  padding: 54px 180px 90px;
+}
+
+.kota-gallery h2 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.kota-gallery-grid {
+  margin-top: 54px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+.kota-gallery-item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 11px 17px -3px rgba(0, 0, 0, 0.1), 0 4px 7px -4px rgba(0, 0, 0, 0.1);
+}
+
+.kota-gallery-item--wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 7;
+}
+
+.kota-impact {
+  max-width: 756px;
+  margin: 0 auto;
+  padding: 72px 0;
+}
+
+.kota-impact h2 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 54px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  background-image: linear-gradient(166deg, #C49A52 9.56%, #D2AE6D 57.79%, #CA6641 104.57%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.kota-impact p {
+  margin: 22px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 27px;
+  line-height: 1.33;
+  color: #5A2E20;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.kota-impact-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.kota-impact-item {
+  text-align: center;
+}
+
+.kota-impact-value {
+  font-family: 'Manrope', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.kota-impact-label {
+  margin-top: 6px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7A635A;
+}
+
+.kota-next-cta {
+  border-top: 1.125px solid #F5EFE5;
+  margin: 0 180px;
+  padding: 91px 0 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.kota-next-cta h3 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  text-transform: lowercase;
+}
+
+.kota-next-cta p {
+  margin: 8px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  color: #7A635A;
+  text-transform: lowercase;
+}
+
+.kota-next-cta button {
+  border: none;
+  border-radius: 9999px;
+  padding: 20px 42px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  background-image: linear-gradient(158deg, #C49A52 9.56%, #D2AE6D 57.79%, #CA6641 104.57%);
+  cursor: pointer;
+}
+
+.kota-rebel-footer {
+  background: #000;
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+  padding: 128px 48px;
+}
+
+.kota-rebel-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.kota-rebel-heading {
+  margin: 0;
+  max-width: 760px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  background-image: url('../res/Background.webp');
+  background-size: 305.64% 246.01%;
+  background-position: 28.99% 77.54%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.kota-rebel-sub {
+  margin: 18px 0 0;
+  font-size: 24px;
+  color: #a3a3a3;
+}
+
+.kota-rebel-btn {
+  border: none;
+  background: #fff;
+  color: #000;
+  border-radius: 999px;
+  padding: 20px 40px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kota-rebel-bottom {
+  max-width: 1280px;
+  margin: 49px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid #262626;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #737373;
+  font-size: 14px;
+}
+
+.kota-rebel-socials {
+  display: flex;
+  gap: 24px;
+}
+
+.kota-rebel-socials a {
+  color: #737373;
+  text-decoration: none;
+}
+
+@media (max-width: 1180px) {
+  .kota-hero-top,
+  .kota-gallery {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .kota-main-image-wrap,
+  .kota-next-cta {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .kota-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding: 64px 40px;
+  }
+
+  .kota-left {
+    gap: 28px;
+  }
+
+  .kota-right {
+    gap: 54px;
+  }
+}
+
+@media (max-width: 780px) {
+  .kota-header {
+    padding: 0 16px;
+  }
+
+  .kota-main {
+    padding-top: 28px;
+  }
+
+  .kota-hero-top,
+  .kota-gallery {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .kota-main-image-wrap,
+  .kota-next-cta {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .kota-title {
+    line-height: 0.95;
+  }
+
+  .kota-challenge-cards,
+  .kota-gallery-grid,
+  .kota-impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kota-next-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+
+  .kota-next-cta button {
+    width: 100%;
+  }
+
+  .kota-rebel-footer {
+    padding: 64px 16px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+
+  .kota-rebel-inner,
+  .kota-rebel-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .kota-rebel-sub {
+    font-size: 16px;
+  }
+
+  .kota-rebel-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}

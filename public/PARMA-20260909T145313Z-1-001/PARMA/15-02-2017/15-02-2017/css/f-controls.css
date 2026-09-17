@@ -1,0 +1,438 @@
+
+
+.f-sub-txt{
+	color:#333333;
+	display:block;
+	text-transform:capitalize;
+	position:relative;
+	border-bottom:1px solid #e4e4e4;
+	margin-bottom:20px;
+}
+
+/*button*/
+
+.f-btn{ 
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  text-transform:capitalize;
+  font-size: 14px;
+  font-weight: normal;
+  line-height:normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+   touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12), 1px 1px 0 rgba(255, 255, 255, 0.2) inset;
+	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12), 1px 1px 0 rgba(255, 255, 255, 0.2) inset;
+	-o-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12), 1px 1px 0 rgba(255, 255, 255, 0.2) inset;
+	-ms-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12), 1px 1px 0 rgba(255, 255, 255, 0.2) inset;
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12), 1px 1px 0 rgba(255, 255, 255, 0.2) inset;
+}
+
+.f-controls-wrp .f-btn{
+	margin-bottom: 5px !important;
+    margin-left: 5px;
+}
+
+
+
+.f-btn-default{
+  background:#414142;
+  color:#ffffff;
+  border-color:#414142;
+}
+
+.f-btn-default:hover{
+	background:#575758;
+	 border-color:#575758;
+}
+
+.f-btn-primary{
+  background:#f47b64;
+  color:#ffffff;
+   border-color:#f47b64;
+}
+
+.f-btn-primary:hover{
+	background:#fb8670;
+	border-color:#fb8670;
+}
+
+.f-btn-success{
+  background:#60c060;
+  color:#ffffff;
+  border-color:#60c060;
+}
+
+.f-btn-success:hover{
+	background:#70ce70;
+	border-color:#70ce70;
+}
+
+.f-btn-info{
+  background:#5bc0de;
+  color:#ffffff;
+  border-color:#5bc0de;
+}
+
+.f-btn-info:hover{
+	background:#6cceeb;
+	border-color:#6cceeb;
+}
+
+.f-btn-warning{
+  background:#ff9900;
+  color:#ffffff;
+  border-color:#ff9900;
+}
+
+.f-btn-warning:hover{
+	background:#fda82a;
+	border-color:#fda82a;
+}
+
+.f-btn-danger{
+  background:#df4b33;
+  color:#ffffff;
+  border-color:#df4b33;
+}
+
+.f-btn-danger:hover{
+	background:#f56048;
+	 border-color:#f56048;
+}
+
+.f-btn-xs{
+	font-size: 11px;
+    padding: 2px 6px;
+}
+
+.f-btn-sm{
+	font-size: 12px;
+    padding: 4px 7px;
+}
+
+.f-btn-lg{
+	 font-size: 15px;
+    font-weight: 300;
+    padding: 12px 14px;
+}
+
+/*button*/
+
+
+/*table*/
+	
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #e4e4e4;
+}
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #e4e4e4;
+}
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+.table > tbody + tbody {
+  border-top: 2px solid #e4e4e4;
+}
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+  border-bottom-width: 2px;
+}
+
+
+.table-responsive {
+  min-height: .01%;
+  overflow-x: auto;
+}
+
+
+/*table*/
+
+
+/*form control*/
+
+
+	
+.f-form-group {
+  padding: 10px 0;
+  overflow:hidden;
+}
+
+.f-control-lbl{
+	 margin-bottom: 0;
+    padding-top: 7px;
+    text-align: right;
+}	
+	
+.f-form-control{
+  display: block;
+  width: 100%;
+  height: 34px;
+   outline: 0;
+  padding: 6px 12px;
+  position:relative;
+  font-size: 14px;
+  line-height: 34px;
+  color: #666666;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #e4e4e4;
+  border-radius: 4px;
+ 
+}
+.f-form-control:focus {
+  border-color: #fd826e;
+  outline: 0;
+}
+.f-form-control::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.f-form-control:-ms-input-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.f-form-control::-webkit-input-placeholder {
+  color: #999;
+   opacity: 1;
+}
+
+.f-form-control[disabled], .f-form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #eee;
+    opacity: 1;
+}
+
+.f-form-control[disabled], fieldset[disabled]{
+	cursor:not-allowed;
+}
+
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){
+  margin    : 0;
+  padding   : 0;
+  opacity   : 0;
+}
+
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  line-height  : 28px;
+}
+
+input[type=checkbox]:not(old) + label > span,
+input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  width            : 12px;
+  height           : 12px;
+  margin           : 7px;
+  border           : 1px solid rgb(192,192,192);
+  border-radius    : 1px;
+  background       : rgb(224,224,224);
+  background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :     -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :      -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :         linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  vertical-align   : bottom;
+}
+
+input[type=checkbox]:not(old):checked + label > span,
+input[type=radio   ]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+
+input[type=checkbox]:not(old):checked + label > span:before{
+  content     : '✓';
+  display     : block;
+  width       : 2px;
+  color       : #f47b64;
+  font-size   : 12px;
+  line-height : 10px;
+  text-align  : center;
+  font-weight : bold;
+}
+
+input[type=radio]:not(old):checked +  label > span > span{
+	display          : block;
+	width            : 8px;
+	height           : 8px;
+	margin           : 1px;
+	border           : 1px solid #f47b64;
+  border-radius    : 5px;
+  background:#f47b64;
+ 
+}
+
+input[type=radio]:not(old) + label > span{
+	border-radius:5px;
+}
+
+
+.datepicker table tr td.active:hover, .datepicker table tr td.active:hover:hover, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.disabled:hover:hover, .datepicker table tr td.active:active, .datepicker table tr td.active:hover:active, .datepicker table tr td.active.disabled:active, .datepicker table tr td.active.disabled:hover:active, .datepicker table tr td.active.active, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.disabled.active, .datepicker table tr td.active.disabled.active:hover, .datepicker table tr td.active.disabled, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.disabled.disabled, .datepicker table tr td.active.disabled.disabled:hover, .datepicker table tr td.active[disabled], .datepicker table tr td.active[disabled]:hover, .datepicker table tr td.active.disabled[disabled], .datepicker table tr td.active.disabled[disabled]:hover{
+	background:#f47b64;
+}
+
+/*form*/
+
+.srch-txt{
+	padding-right:35px !important;
+}
+
+.srch-submit{
+	position:absolute;
+	top:0;
+	right:0;
+	margin-bottom:0;
+	height:35px;
+	background:#cccccc;
+	color:#ffffff;
+}	
+
+
+.normal-table tbody{
+	border-left:1px solid #e4e4e4;
+	border-right:1px solid #e4e4e4;
+}
+
+.normal-table th, .normal-table td{
+	padding:10px;
+}
+
+.normal-table th span, .normal-table td span{
+	text-align:left;
+	display:block;
+}
+
+.normal-table th{
+	border-bottom:1px solid #e4e4e4;
+	background:#9e2105;
+	border-right:1px solid #7c1a04;
+}
+
+.normal-table th:last-child{
+	border-right:none;
+}
+
+.normal-table th span{
+	color:#ffffff;
+	font-size:17px;
+	font-weight:400;
+}
+
+.normal-table td{
+	background:#fdf9e7;
+	border-right:1px solid #dcd9d9;
+}
+
+.normal-table td:last-child{
+	border-right:none;
+}
+
+.normal-table tr{
+	border-bottom:1px solid #e4e4e4;
+}
+
+.normal-table tr:last-child{
+	border-bottom:1px solid #e4e4e4;
+}
+
+
+	
+@media (max-width: 767px) {
+	
+   /*table*/
+  	
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+  }
+  .table-responsive > .table {
+    margin-bottom: 0;
+  }
+  .table-responsive > .table > thead > tr > th,
+  .table-responsive > .table > tbody > tr > th,
+  .table-responsive > .table > tfoot > tr > th,
+  .table-responsive > .table > thead > tr > td,
+  .table-responsive > .table > tbody > tr > td,
+  .table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+  .table-responsive > .table-bordered {
+    border: 0;
+  }
+  .table-responsive > .table-bordered > thead > tr > th:first-child,
+  .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  .table-responsive > .table-bordered > thead > tr > td:first-child,
+  .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+  }
+  .table-responsive > .table-bordered > thead > tr > th:last-child,
+  .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  .table-responsive > .table-bordered > thead > tr > td:last-child,
+  .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+  }
+  .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+  .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+
+    border-bottom: 0;
+  }
+
+ /*table*/  
+
+}

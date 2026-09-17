@@ -1,0 +1,258 @@
+.parma-expanding-wrapper {
+  width: 100%;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+.parma-expanding-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 520px;
+  gap: 16px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.parma-expanding-card {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s ease, border-color 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #1F0F0A;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.parma-expanding-card:hover {
+  border-color: rgba(20, 184, 166, 0.4);
+}
+
+.parma-expanding-card.is-active {
+  flex: 3.5;
+  border-color: rgba(20, 184, 166, 0.7);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.parma-expanding-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+.parma-expanding-card:hover .parma-expanding-bg,
+.parma-expanding-card.is-active .parma-expanding-bg {
+  transform: scale(1.05);
+}
+
+.parma-expanding-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.4) 0%,
+    rgba(15, 23, 42, 0.75) 50%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.parma-expanding-card.is-active .parma-expanding-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.25) 0%,
+    rgba(15, 23, 42, 0.65) 45%,
+    rgba(15, 23, 42, 0.92) 100%
+  );
+}
+
+.parma-card-top {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.parma-card-category {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #EDE2D2;
+  font-weight: 600;
+}
+
+.parma-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #C49A52;
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.parma-card-icon {
+  width: 14px;
+  height: 14px;
+  color: #C49A52;
+}
+
+.parma-card-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.parma-card-heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.parma-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.parma-card-subtitle {
+  font-size: 0.88rem;
+  color: #C49A52;
+  margin: 0;
+  font-weight: 500;
+}
+
+.parma-card-collapsed-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #EDE2D2;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 8px;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+.parma-card-icon-sm {
+  width: 16px;
+  height: 16px;
+  color: #C49A52;
+}
+
+.parma-card-expanded-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+  animation: parmaFadeIn 0.4s ease forwards;
+}
+
+@keyframes parmaFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.parma-card-desc {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #EDE2D2;
+  margin: 0;
+  max-width: 540px;
+}
+
+.parma-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.parma-card-tag-item {
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #F5EFE5;
+}
+
+.parma-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 10px 20px;
+  margin-top: 6px;
+  border-radius: 9999px;
+  background: #CA6641;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.parma-card-cta:hover {
+  background: #0f827d;
+  transform: translateX(2px);
+}
+
+.parma-cta-arrow {
+  width: 16px;
+  height: 16px;
+}
+
+/* Mobile responsive accordion layout */
+@media (max-width: 860px) {
+  .parma-expanding-container {
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
+  }
+
+  .parma-expanding-card {
+    height: 140px;
+    flex: none;
+  }
+
+  .parma-expanding-card.is-active {
+    height: 420px;
+    flex: none;
+  }
+
+  .parma-card-title {
+    font-size: 1.25rem;
+  }
+}

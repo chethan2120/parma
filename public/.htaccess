@@ -1,0 +1,79 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Keep one canonical URL shape when a generated HTML twin exists.
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # Don't rewrite existing files.
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Serve generated route-specific HTML. Unknown URLs retain a real 404 status.
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+
+  # Preserve real asset directories after checking for a same-name HTML route.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/svg+xml .svg
+  AddType image/x-icon .ico
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 1. NEW: Enable Compression (Vacuum-seals your code and text files)
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml font/otf font/woff font/woff2
+  # Gzip-compressed .ico payloads break favicon display in some Edge builds.
+  SetEnvIfNoCase Request_URI "\.ico$" no-gzip dont-vary
+</IfModule>
+
+# these done by Daksh Sharma
+# ----------------------------------------------------------------------
+# 2. Leverage Browser Caching (Your original robust caching rules)
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Cache CSS and JS
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+
+  # Cache Fonts
+  ExpiresByType font/otf "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+
+  # Cache Media
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Set Cache-Control header to public for static assets
+  <FilesMatch "\.(css|js|otf|woff|woff2|mp4|gif|jpg|jpeg|png|webp|svg|ico)$">
+      Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Favicons must stay refreshable for browsers + Google SERP (override immutable above).
+  <FilesMatch "^(favicon|apple-touch-icon|webnxt-icon|site\.webmanifest)">
+      Header set Cache-Control "public, max-age=604800, must-revalidate"
+  </FilesMatch>
+
+  # Prevent caching of the SPA entry point
+  <FilesMatch "^index\.html$">
+      Header set Cache-Control "no-cache, no-store, must-revalidate"
+      Header set Pragma "no-cache"
+      Header set Expires "0"
+  </FilesMatch>
+</IfModule>

@@ -1,0 +1,274 @@
+/* Parma Inn (Stay) - Luxury Editorial Terracotta & Gold Styling */
+
+.pp-root {
+  background-color: var(--parma-bg-parchment, #F4EBDD);
+  color: var(--parma-text-dark, #24140F);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.pp-header {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+  padding: 0 clamp(20px, 4vw, 48px);
+  background: rgba(36, 20, 15, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--parma-border-gold, rgba(184, 144, 82, 0.3));
+}
+
+.pp-hero {
+  padding: 96px clamp(20px, 5%, 64px) 48px;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pp-eyebrow {
+  display: inline-block;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #B89052;
+  margin-bottom: 16px;
+}
+
+.pp-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: #24140F;
+  margin-bottom: 20px;
+}
+
+.pp-subtext {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.68;
+  color: #4a342e;
+  max-width: 780px;
+  margin: 0 auto 28px;
+}
+
+.pp-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #CA6641 0%, #B89052 100%);
+  color: #ffffff;
+  padding: 14px 34px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(202, 106, 65, 0.35);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.pp-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(202, 106, 65, 0.5);
+}
+
+.pp-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Main Photograph ─────────────────────────────────────── */
+.pp-main-photo-section {
+  padding: 24px 0 80px;
+}
+
+.pp-main-photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7.5;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(36, 20, 15, 0.15);
+  border: 1px solid rgba(184, 144, 82, 0.35);
+}
+
+.pp-main-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pp-main-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  background: linear-gradient(180deg, transparent 0%, rgba(36, 20, 15, 0.92) 100%);
+  color: #F4EBDD;
+}
+
+.pp-main-photo-caption span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #B89052;
+}
+
+.pp-main-photo-caption p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  margin: 4px 0 0;
+  font-style: italic;
+}
+
+/* ── Suites Section ───────────────────────────────────────── */
+.pp-suites-section {
+  padding: 80px 0 100px;
+  background: #24140F;
+  color: #F4EBDD;
+  border-top: 1px solid rgba(184, 144, 82, 0.3);
+}
+
+.pp-section-head {
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+.pp-sub-kicker {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #CA6641;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.pp-section-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 300;
+  color: #F4EBDD;
+  margin: 0 0 12px;
+}
+
+.pp-section-head p {
+  font-size: 1.08rem;
+  color: #E9DCC8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pp-suites-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+@media (max-width: 860px) {
+  .pp-suites-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pp-suite-card {
+  background: rgba(42, 23, 18, 0.7);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(184, 144, 82, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.pp-suite-photo {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.pp-suite-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.pp-suite-card:hover .pp-suite-photo img {
+  transform: scale(1.04);
+}
+
+.pp-suite-info {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.pp-suite-sub {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #B89052;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.pp-suite-info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 400;
+  color: #F4EBDD;
+  margin: 0 0 10px;
+}
+
+.pp-suite-info p {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #E9DCC8;
+  margin: 0 0 20px;
+}
+
+.pp-suite-details {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 12px;
+}
+
+.pp-suite-details li {
+  font-size: 0.85rem;
+  color: #B89052;
+}
+
+.pp-suite-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid rgba(184, 144, 82, 0.45);
+  color: #F4EBDD;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.pp-suite-btn:hover {
+  background: rgba(184, 144, 82, 0.2);
+  border-color: #B89052;
+}

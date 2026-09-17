@@ -1,0 +1,200 @@
+/* ══════════════════════════════════════════════════════════════
+   PAGE CURTAIN — load / route transition cover (light)
+
+   Everything here is either static paint (rasterized once) or a transform /
+   opacity animation. No blurs, no filters, no animated gradients: the curtain
+   exists to buy the page quiet frames, so it must not spend them itself.
+══════════════════════════════════════════════════════════════ */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(110% 80% at 50% 0%, rgba(111, 236, 221, 0.22) 0%, rgba(111, 236, 221, 0) 62%),
+    linear-gradient(180deg, #F5EFE5 0%, #F5EFE5 52%, #EDE2D2 100%);
+  /* Compositor-only exit. */
+  transform: translate3d(0, 0, 0);
+  transition: transform 680ms cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+}
+
+.curtain--leaving {
+  transform: translate3d(0, -101%, 0);
+}
+
+/* Fine diagonal texture. Static, so it rasters once and costs nothing after. */
+.curtain-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  background-image: repeating-linear-gradient(
+    118deg,
+    rgba(23, 54, 58, 0.028) 0px,
+    rgba(23, 54, 58, 0.028) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
+.curtain-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(720px, 84vw);
+  height: min(720px, 84vw);
+  margin: calc(min(720px, 84vw) / -2) 0 0 calc(min(720px, 84vw) / -2);
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 66%);
+}
+
+.curtain-center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 0 24px;
+}
+
+.curtain-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  animation: curtain-mark-in 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.curtain-logo {
+  width: 168px;
+  height: auto;
+  display: block;
+}
+
+/* Rendered only when the logo image fails to load — never alongside it. */
+.curtain-logo-fallback {
+  font-family: 'Manrope', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.32em;
+  color: #32170F;
+}
+
+/* Progress rail: a scaleX transform driven by real readiness stages. */
+.curtain-rail {
+  position: relative;
+  width: clamp(180px, 26vw, 260px);
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(23, 54, 58, 0.12);
+  overflow: hidden;
+}
+
+.curtain-rail-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform: scaleX(0.16);
+  border-radius: inherit;
+  background: linear-gradient(90deg, #CA6641 0%, #CA6641 100%);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Corner readout. */
+.curtain-meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 4vw, 46px) clamp(20px, 3.4vw, 38px);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(23, 54, 58, 0.42);
+  animation: curtain-meta-in 700ms ease 120ms both;
+}
+
+.curtain-count {
+  font-variant-numeric: tabular-nums;
+  color: rgba(13, 107, 102, 0.72);
+}
+
+/* Thin accent line along the bottom edge — reads as the curtain's leading edge
+   as it lifts away. */
+.curtain-edge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(13, 107, 102, 0) 0%, #CA6641 50%, rgba(13, 107, 102, 0) 100%);
+  opacity: 0.5;
+}
+
+@keyframes curtain-mark-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes curtain-meta-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .curtain-logo {
+    width: 132px;
+  }
+
+  .curtain-center {
+    gap: 24px;
+  }
+
+  .curtain-meta {
+    letter-spacing: 0.2em;
+    font-size: 10px;
+  }
+}
+
+/* Reduced motion: no wipe, no entrance moves — the curtain just goes. */
+@media (prefers-reduced-motion: reduce) {
+  .curtain {
+    transition: opacity 200ms linear;
+  }
+
+  .curtain--leaving {
+    transform: none;
+    opacity: 0;
+  }
+
+  .curtain-mark,
+  .curtain-meta {
+    animation: none;
+  }
+
+  .curtain-rail-fill {
+    transition: none;
+  }
+}
