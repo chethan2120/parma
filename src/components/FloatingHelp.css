@@ -1,10 +1,51 @@
 .fh-root {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
+  right: 14px;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
   z-index: 250;
   pointer-events: none;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .fh-root {
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .fh-fab-stack {
+    gap: 10px;
+  }
+
+  .fh-fab {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+  }
+
+  .fh-fab--bot {
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+  }
+
+  .fh-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .fh-icon-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .fh-panel {
+    right: 0;
+    bottom: 115px;
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 130px);
+  }
 }
 
 .fh-fab-stack {
