@@ -1,5 +1,5 @@
 import React from 'react'
-import AnimatedSlideshow from '../ui/animated-slideshow'
+import CircularFlipCardGallery from '../ui/circular-flip-card-gallery'
 
 interface OurWorkSectionProps {
   gradientClip?: React.CSSProperties
@@ -7,6 +7,5 @@ interface OurWorkSectionProps {
 }
 
 export function OurWorkSection({ onNavigate }: OurWorkSectionProps) {
-  return <AnimatedSlideshow onNavigate={onNavigate} />
+  return <CircularFlipCardGallery onNavigate={onNavigate} />
 }
-
