@@ -1,14 +1,10 @@
-// Done: Updated EnterpriseSection for Parma Sanctuary Immersion.
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
-  IMG_CHECK_W1,
-  IMG_ENT_DEV,
-  IMG_ENT_DESIGN,
-  IMG_ENT_MOB,
-  IMG_ENT_SEC,
-  IMG_ENT_PERF,
-  IMG_ENT_CLOUD,
-  IMG_CONNECT,
+  IMG_PANTHER_1,
+  IMG_HEAT_THERAPY,
+  IMG_HEALTH_2,
+  IMG_YOGA,
 } from '../../data/assets'
 import './EnterpriseSection.css'
 
@@ -17,105 +13,86 @@ interface EnterpriseSectionProps {
   gradientClip: React.CSSProperties
 }
 
+const IMMERSION_CARDS = [
+  {
+    id: 'stay',
+    number: '01',
+    category: 'PARMA INN',
+    title: 'Sanctuary Suite Stay',
+    description: 'Luxury accommodations furnished with Baker & Nancy Corzine antiques.',
+    image: IMG_PANTHER_1,
+    link: '/stay',
+  },
+  {
+    id: 'spa',
+    number: '02',
+    category: 'PARMA SPA',
+    title: 'Ayurvedic Thermal Care',
+    description: '5,000-year-old pulse assessments, Abhyanga oil & Hammam steam.',
+    image: IMG_HEAT_THERAPY,
+    link: '/spa',
+  },
+  {
+    id: 'health',
+    number: '03',
+    category: 'HEALTHCARE',
+    title: 'Concierge Physician Care',
+    description: 'Integrative medical consults & Mayo Clinic specialist liaison.',
+    image: IMG_HEALTH_2,
+    link: '/healthcare',
+  },
+  {
+    id: 'meditation',
+    number: '04',
+    category: 'MEDITATION',
+    title: 'Sushila Shanti Retreat',
+    description: 'Guided asana, pranayama breathing & Bihar School Yoga Nidra.',
+    image: IMG_YOGA,
+    link: '/meditation',
+  },
+]
+
 export function EnterpriseSection({ onNavigate, gradientClip }: EnterpriseSectionProps) {
   return (
-    <section className="enterprise">
-      <div className="enterprise-card">
-        <h2 className="ent-heading">
-          <span className="ent-heading-white">Sanctuary </span>
-          <span style={gradientClip}>Immersion</span>
-        </h2>
-        <p className="ent-subtitle">A complete private retreat blending all four worlds of Parma</p>
-        <div className="ent-features-grid">
-          <div className="ent-feature">
-            <img src={IMG_CHECK_W1} alt="" className="ent-check" loading="lazy" decoding="async" />
-            Parma Inn Suite Accommodation
-          </div>
-          <div className="ent-feature">
-            <img src={IMG_CHECK_W1} alt="" className="ent-check" loading="lazy" decoding="async" />
-            Ayurvedic Pulse & Dosha Consult
-          </div>
-          <div className="ent-feature">
-            <img src={IMG_CHECK_W1} alt="" className="ent-check" loading="lazy" decoding="async" />
-            Abhyanga & Kathi Basti Massage
-          </div>
-          <div className="ent-feature">
-            <img src={IMG_CHECK_W1} alt="" className="ent-check" loading="lazy" decoding="async" />
-            Hammam Steam & Kuti Swedhana
-          </div>
-          <div className="ent-feature">
-            <img src={IMG_CHECK_W1} alt="" className="ent-check" loading="lazy" decoding="async" />
-            Concierge Medical Consultation
-          </div>
-          <div className="ent-feature">
-            <img src={IMG_CHECK_W1} alt="" className="ent-check" loading="lazy" decoding="async" />
-            Second Opinion Teleconsultation
-          </div>
-          <div className="ent-feature">
-            <img src={IMG_CHECK_W1} alt="" className="ent-check" loading="lazy" decoding="async" />
-            Sushila Shanti Asana & Meditation
-          </div>
-          <div className="ent-feature">
-            <img src={IMG_CHECK_W1} alt="" className="ent-check" loading="lazy" decoding="async" />
-            Aquatic Yoga & Hydrotherapy
-          </div>
-          <div className="ent-feature">
-            <img src={IMG_CHECK_W1} alt="" className="ent-check" loading="lazy" decoding="async" />
-            Signature Jewel Facial & Aesthetics
-          </div>
-          <div className="ent-feature">
-            <img src={IMG_CHECK_W1} alt="" className="ent-check" loading="lazy" decoding="async" />
-            Complete Privacy in Blue Ridge
-          </div>
+    <section className="enterprise" aria-label="Sanctuary Immersion">
+      <div className="enterprise-container">
+        <div className="enterprise-head">
+          <span className="ent-kicker">✦ THE COMPLETE RETREAT ✦</span>
+          <h2 className="ent-heading">
+            <span className="ent-heading-white">Sanctuary </span>
+            <span style={gradientClip}>Immersion</span>
+          </h2>
+          <p className="ent-subtitle">A complete private retreat blending all four worlds of Parma</p>
         </div>
-        <div className="ent-icons-row">
-          <img
-            src={IMG_ENT_DEV}
-            alt="Parma Spa"
-            className="ent-category-icon"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            src={IMG_ENT_DESIGN}
-            alt="Parma Healthcare"
-            className="ent-category-icon"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            src={IMG_ENT_MOB}
-            alt="Meditation"
-            className="ent-category-icon"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            src={IMG_ENT_SEC}
-            alt="Inn Stay"
-            className="ent-category-icon"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            src={IMG_ENT_PERF}
-            alt="Ayurveda"
-            className="ent-category-icon"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            src={IMG_ENT_CLOUD}
-            alt="Beauty"
-            className="ent-category-icon"
-            loading="lazy"
-            decoding="async"
-          />
+
+        <div className="ent-grid-4">
+          {IMMERSION_CARDS.map((card) => (
+            <article
+              key={card.id}
+              className="ent-immersion-card"
+              onClick={() => onNavigate(card.link)}
+            >
+              <div className="ent-card-media">
+                <img src={card.image} alt={card.title} loading="lazy" decoding="async" />
+                <span className="ent-card-num">{card.number}</span>
+              </div>
+              <div className="ent-card-body">
+                <span className="ent-card-cat">{card.category}</span>
+                <h3 className="ent-card-title">{card.title}</h3>
+                <p className="ent-card-desc">{card.description}</p>
+                <Link to={card.link} className="ent-card-link" onClick={(e) => e.stopPropagation()}>
+                  Explore {card.category} →
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
-        <button className="ent-connect-btn" onClick={() => onNavigate('/contact')}>
-          <img src={IMG_CONNECT} alt="" className="ent-connect-icon" loading="lazy" decoding="async" />
-          Reserve Immersion Stay
-        </button>
+
+        <div className="ent-bottom-cta">
+          <button className="ent-connect-btn" onClick={() => onNavigate('/contact')}>
+            Reserve Immersion Stay ↗
+          </button>
+        </div>
       </div>
     </section>
   )

@@ -1,128 +1,202 @@
 /* ══════════════════════════════════════════════════════════════
-   SANCTUARY CONSULTATION BANNER — Terracotta & Antique Gold
+   SANCTUARY IMMERSION SECTION — Clean 4-Card Responsive System
 ══════════════════════════════════════════════════════════════ */
 .enterprise {
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(198, 156, 109, 0.1), transparent 70%),
-    #faf6f0;
-  padding: clamp(48px, 10vw, 110px) clamp(16px, 6vw, 80px);
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid var(--parma-border-gold);
+  position: relative;
+  isolation: isolate;
+  z-index: 1;
+  overflow: hidden;
+  background-color: #24140F;
+  color: #F5EFE5;
+  padding: clamp(64px, 9vh, 100px) clamp(20px, 5vw, 64px);
+  border-bottom: 1px solid rgba(196, 154, 82, 0.25);
+  box-sizing: border-box;
 }
 
-.enterprise-card {
-  background: linear-gradient(145deg, #3b1812 0%, #2a0f0b 100%);
-  border: 1px solid rgba(198, 156, 109, 0.4);
-  box-shadow: 0 30px 70px rgba(59, 24, 18, 0.2);
-  border-radius: clamp(24px, 4vw, 40px);
-  padding: clamp(40px, 8vw, 80px) clamp(24px, 8vw, 96px);
-  max-width: 1344px;
+.enterprise-container {
+  max-width: 1360px;
+  margin: 0 auto;
   width: 100%;
+}
+
+.enterprise-head {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(24px, 4vw, 40px);
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+
+.ent-kicker {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #C49A52;
+  margin-bottom: 10px;
 }
 
 .ent-heading {
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: clamp(40px, 5vw, 68px);
+  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
   letter-spacing: -0.01em;
-  margin: 0;
-  line-height: 1.1;
-  color: #faf6f0;
+  margin: 0 0 12px 0;
+  line-height: 1.05;
+  color: #F5EFE5;
 }
 
-.ent-heading-white { color: #faf6f0; }
+.ent-heading-white { color: #F5EFE5; }
 
 .ent-subtitle {
   font-family: var(--font-sans);
-  font-size: 19px;
-  color: #d4c5b3;
-  margin: -16px 0 0;
+  font-size: clamp(0.98rem, 1.2vw, 1.12rem);
+  color: rgba(245, 239, 229, 0.85);
+  margin: 0;
 }
 
-.ent-features-grid {
+/* 4-card grid: 4 in 1 row on desktop, 2x2 on tablet, 1x4 on mobile */
+.ent-grid-4 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
-  gap: 16px clamp(24px, 6vw, 96px);
-  text-align: left;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
   width: 100%;
-  max-width: 720px;
 }
 
-.ent-feature {
+.ent-immersion-card {
+  background: linear-gradient(145deg, #2A1712 0%, #1c0b08 100%);
+  border: 1px solid rgba(196, 154, 82, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ent-immersion-card:hover {
+  transform: translateY(-4px);
+  border-color: #C49A52;
+  box-shadow: 0 20px 48px rgba(36, 20, 15, 0.6);
+}
+
+.ent-card-media {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #1A0D08;
+}
+
+.ent-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.ent-immersion-card:hover .ent-card-media img {
+  transform: scale(1.05);
+}
+
+.ent-card-num {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(36, 20, 15, 0.85);
+  color: #C49A52;
+  border: 1px solid rgba(196, 154, 82, 0.4);
+  padding: 2px 10px;
+  border-radius: 9999px;
   font-family: var(--font-sans);
-  font-size: 16px;
-  color: #e8dfd1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 
-.ent-check {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.ent-icons-row {
+.ent-card-body {
+  padding: 22px 20px;
   display: flex;
-  gap: 32px;
-  opacity: 0.7;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
 }
 
-.ent-category-icon {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
+.ent-card-cat {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #C49A52;
+  text-transform: uppercase;
+}
+
+.ent-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: #F5EFE5;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.ent-card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(245, 239, 229, 0.85);
+  margin: 0;
+}
+
+.ent-card-link {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #C49A52;
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.ent-bottom-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 44px;
 }
 
 .ent-connect-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #c69c6d 0%, #a67c4e 100%);
+  background: linear-gradient(135deg, #CA6641 0%, #B89052 100%);
   border: none;
   border-radius: 9999px;
   padding: 16px 38px;
   font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 16px;
-  color: #1a0805;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #F5EFE5;
   cursor: pointer;
+  box-shadow: 0 8px 24px rgba(202, 106, 65, 0.35);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .ent-connect-btn:hover {
-  background: linear-gradient(135deg, #dfb788 0%, #c69c6d 100%);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(198, 156, 109, 0.4);
+  box-shadow: 0 12px 30px rgba(202, 106, 65, 0.5);
 }
 
-.ent-connect-icon {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
+@media (max-width: 1024px) {
+  .ent-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 
 @media (max-width: 640px) {
-  .ent-subtitle {
-    font-size: 16px;
-    margin-top: -8px;
-  }
-  .ent-icons-row {
+  .ent-grid-4 {
+    grid-template-columns: 1fr;
     gap: 20px;
-  }
-  .ent-connect-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 24px;
   }
 }

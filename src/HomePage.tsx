@@ -10,7 +10,6 @@
 
 import { useState, useEffect, useRef, type CSSProperties } from 'react'
 import { usePageMotion } from './hooks/usePageMotion'
-import { IMG_GRADIENT } from './data/assets'
 
 // Import subcomponents
 import PartnersSection from './components/PartnersSection'
@@ -19,6 +18,7 @@ import { ServicesSection } from './components/Home/ServicesSection'
 import { WhyChooseSection } from './components/Home/WhyChooseSection'
 import { OurWorkSection } from './components/Home/OurWorkSection'
 import { SanctuaryStaySection } from './components/Home/SanctuaryStaySection'
+import CircularFlipCardGallery from './components/ui/circular-flip-card-gallery'
 
 import { EnterpriseSection } from './components/Home/EnterpriseSection'
 import { TestimonialSection } from './components/Home/TestimonialSection'
@@ -48,9 +48,7 @@ function loadHomeMotionRuntime() {
 }
 
 const gradientClip: CSSProperties = {
-  backgroundImage: `url('${IMG_GRADIENT}')`,
-  backgroundSize: '305.64% 246.01%',
-  backgroundPosition: '28.99% 77.54%',
+  backgroundImage: 'linear-gradient(135deg, #CA6641 0%, #C49A52 50%, #B89052 100%)',
   WebkitBackgroundClip: 'text',
   backgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
@@ -524,20 +522,23 @@ export default function HomePage({ onMenuOpen, onNavigate }: HomePageProps) {
         gradientClip={gradientClip}
       />
 
-      {/* ──────────────────── OUR PARTNERS (home) ──────────────────── */}
-      <PartnersSection variant="home" onNavigate={onNavigate} />
-
-      {/* ──────────────────── WHY CHOOSE WEBNXT ──────────────────── */}
+      {/* ──────────────────── WHY CHOOSE PARMA ──────────────────── */}
       <WhyChooseSection gradientClip={gradientClip} />
 
-      {/* ──────────────────── OUR WORK / EXPERIENCE PARMA ──────────────────── */}
+      {/* ──────────────────── EXPERIENCE PARMA (2-Column Slideshow) ──────────────────── */}
       <OurWorkSection onNavigate={onNavigate} gradientClip={gradientClip} />
+
+      {/* ──────────────────── THE PARMA ECOSYSTEM (Circular Ring / Mobile Journey) ──────────────────── */}
+      <CircularFlipCardGallery onNavigate={onNavigate} />
 
       {/* ──────────────────── SANCTUARY STAY EXPERIENCE ──────────────────── */}
       <SanctuaryStaySection onNavigate={onNavigate} gradientClip={gradientClip} />
 
-      {/* ──────────────────── ENTERPRISE BUNDLE ──────────────────── */}
+      {/* ──────────────────── SANCTUARY IMMERSION (4-Card Grid) ──────────────────── */}
       <EnterpriseSection onNavigate={onNavigate} gradientClip={gradientClip} />
+
+      {/* ──────────────────── OUR PARTNERS ──────────────────── */}
+      <PartnersSection variant="home" onNavigate={onNavigate} />
 
       {/* ──────────────────── TESTIMONIAL ──────────────────── */}
       <TestimonialSection gradientClip={gradientClip} />
