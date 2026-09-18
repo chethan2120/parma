@@ -417,7 +417,7 @@ export function CircularFlipCardGallery({ onNavigate }: Props) {
           {/* Rotating Ring Container */}
           <div
             className="parma-circular-ring-wrapper"
-            style={{ transform: `rotate(${rotationAngle}deg)` }}
+            style={{ transform: `translate(-50%, -50%) rotate(${rotationAngle}deg)` }}
           >
             {PARMA_15_GALLERY_ITEMS.map((item, index) => {
               const cardAngle = index * angleStep
