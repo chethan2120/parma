@@ -263,10 +263,10 @@ function createFallback(route) {
       <style>
         #boot-curtain{display:none!important}
         .seo-fallback{max-width:1120px;margin:0 auto;padding:32px;font:16px/1.6 system-ui,sans-serif;color:#17201f}
-        .seo-fallback header a{font-size:24px;font-weight:800;color:#0d6b66;text-decoration:none}
+        .seo-fallback header a{font-size:24px;font-weight:800;color:#3b1812;text-decoration:none}
         .seo-fallback h1{font-size:clamp(2rem,6vw,4rem);line-height:1.05}
         .seo-fallback nav{display:flex;flex-wrap:wrap;gap:16px;margin:28px 0}
-        .seo-fallback a{color:#0d6b66}
+        .seo-fallback a{color:#3b1812}
       </style>
     </noscript>`
 }

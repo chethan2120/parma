@@ -264,7 +264,7 @@ function ParmaMobileJourney({ onNavigate }: { onNavigate?: (path: string) => voi
             <motion.div
               key={item.id}
               className="parma-mobile-card"
-              initial={{ opacity: 0.35, y: 26, clipPath: 'inset(8% 0 8% 0 round 18px)' }}
+              initial={{ opacity: 0.35, y: 24, clipPath: 'inset(6% 0 6% 0 round 18px)' }}
               whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0 0% 0 round 18px)' }}
               viewport={{ once: true, margin: '-8% 0px' }}
               transition={{
@@ -319,14 +319,14 @@ export function CircularFlipCardGallery({ onNavigate }: Props) {
 
   const [isMobileView, setIsMobileView] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
-      return window.innerWidth <= 768
+      return window.innerWidth <= 860
     }
     return false
   })
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobileView(window.innerWidth <= 768)
+      setIsMobileView(window.innerWidth <= 860)
     }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
@@ -382,101 +382,101 @@ export function CircularFlipCardGallery({ onNavigate }: Props) {
   return (
     <section
       className="parma-circular-gallery-section"
+      id="parma-ecosystem"
       onMouseLeave={handleMouseLeave}
       aria-label="The Parma Ecosystem Gallery"
     >
       {/* Terracotta Plaster Ambient Backdrop */}
       <div className="parma-circular-plaster-bg" />
 
-      {/* MOBILE / TABLET DEDICATED PARMA JOURNEY */}
-      <div className="parma-mobile-only-container">
+      {/* CONDITIONAL RENDER: MOUNT ONLY MOBILE OR DESKTOP TO PREVENT DOM DUPLICATION */}
+      {isMobileView ? (
         <ParmaMobileJourney onNavigate={onNavigate} />
-      </div>
-
-      {/* DESKTOP 3D CIRCULAR GALLERY */}
-      <div className="parma-desktop-only-container">
-        {/* Decorative Gold Circles in Center */}
-        <div className="parma-circular-gold-rings" aria-hidden="true">
-          <span className="ring-outer" />
-          <span className="ring-inner" />
-        </div>
-
-        {/* Central Typography (Fixed, non-rotating) */}
-        <div className="parma-circular-center-content">
-          <span className="parma-center-kicker">✦ THE SANCTUARY WORLDS ✦</span>
-          <h2 className="parma-center-title">
-            THE PARMA<br />
-            <span>ECOSYSTEM</span>
-          </h2>
-          <div className="parma-center-cue">
-            <span>EXPLORE THE PARMA WORLD</span>
-            <span className="parma-cue-line" />
+      ) : (
+        <div className="parma-desktop-only-container">
+          {/* Decorative Gold Circles in Center */}
+          <div className="parma-circular-gold-rings" aria-hidden="true">
+            <span className="ring-outer" />
+            <span className="ring-inner" />
           </div>
-        </div>
 
-        {/* Rotating Ring Container */}
-        <div
-          className="parma-circular-ring-wrapper"
-          style={{ transform: `rotate(${rotationAngle}deg)` }}
-        >
-          {PARMA_15_GALLERY_ITEMS.map((item, index) => {
-            const cardAngle = index * angleStep
-            const isFlipped = flippedIndex === index
-            const isHovered = hoveredIndex === index
+          {/* Central Typography (Fixed, non-rotating) */}
+          <div className="parma-circular-center-content">
+            <span className="parma-center-kicker">✦ THE SANCTUARY WORLDS ✦</span>
+            <h2 className="parma-center-title">
+              THE PARMA<br />
+              <span>ECOSYSTEM</span>
+            </h2>
+            <div className="parma-center-cue">
+              <span>EXPLORE THE PARMA WORLD</span>
+              <span className="parma-cue-line" />
+            </div>
+          </div>
 
-            return (
-              <div
-                key={item.id}
-                className={`parma-circular-card-node ${isHovered ? 'is-hovered' : ''} ${isFlipped ? 'is-flipped' : ''}`}
-                style={{
-                  transform: `rotate(${cardAngle}deg) translateY(-360px)`,
-                }}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onClick={() => handleCardClick(item, index)}
-                role="button"
-                tabIndex={0}
-                aria-label={`${item.title} card`}
-              >
-                {/* Counter-rotation to keep images visually upright */}
+          {/* Rotating Ring Container */}
+          <div
+            className="parma-circular-ring-wrapper"
+            style={{ transform: `rotate(${rotationAngle}deg)` }}
+          >
+            {PARMA_15_GALLERY_ITEMS.map((item, index) => {
+              const cardAngle = index * angleStep
+              const isFlipped = flippedIndex === index
+              const isHovered = hoveredIndex === index
+
+              return (
                 <div
-                  className="parma-circular-card-counter"
+                  key={item.id}
+                  className={`parma-circular-card-node ${isHovered ? 'is-hovered' : ''} ${isFlipped ? 'is-flipped' : ''}`}
                   style={{
-                    transform: `rotate(${-(rotationAngle + cardAngle)}deg)`,
+                    transform: `rotate(${cardAngle}deg) translateY(-340px)`,
                   }}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onClick={() => handleCardClick(item, index)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`${item.title} card`}
                 >
-                  <div className="parma-flip-card-3d">
-                    {/* Front Face: High Quality Parma Photograph */}
-                    <div className="parma-card-face parma-card-front">
-                      <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
-                      <div className="parma-card-front-overlay" />
-                      <div className="parma-card-front-label">
-                        <span>{item.label}</span>
+                  {/* Counter-rotation to keep images visually upright */}
+                  <div
+                    className="parma-circular-card-counter"
+                    style={{
+                      transform: `rotate(${-(rotationAngle + cardAngle)}deg)`,
+                    }}
+                  >
+                    <div className="parma-flip-card-3d">
+                      {/* Front Face: High Quality Parma Photograph */}
+                      <div className="parma-card-face parma-card-front">
+                        <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+                        <div className="parma-card-front-overlay" />
+                        <div className="parma-card-front-label">
+                          <span>{item.label}</span>
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Back Face: Refined Parma Information */}
-                    <div className="parma-card-face parma-card-back">
-                      <span className="parma-card-back-tag">{item.label}</span>
-                      <h4 className="parma-card-back-title">{item.title}</h4>
-                      <p className="parma-card-back-desc">{item.description}</p>
-                      <button
-                        type="button"
-                        className="parma-card-back-btn"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          if (onNavigate) onNavigate(item.link)
-                        }}
-                      >
-                        Explore ↗
-                      </button>
+                      {/* Back Face: Refined Parma Information */}
+                      <div className="parma-card-face parma-card-back">
+                        <span className="parma-card-back-tag">{item.label}</span>
+                        <h4 className="parma-card-back-title">{item.title}</h4>
+                        <p className="parma-card-back-desc">{item.description}</p>
+                        <button
+                          type="button"
+                          className="parma-card-back-btn"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            if (onNavigate) onNavigate(item.link)
+                          }}
+                        >
+                          Explore ↗
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   )
 }
