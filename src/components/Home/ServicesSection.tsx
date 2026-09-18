@@ -14,7 +14,7 @@ interface ServicesSectionProps {
 
 export function ServicesSection({ svcStackRefs, gradientClip }: ServicesSectionProps) {
   return (
-    <section className="services">
+    <section className="services" id="parma-experiences" data-section="parma-experiences">
       <div className="services-header">
         <h2 className="section-heading-xl" style={gradientClip}>Parma Experiences</h2>
         <p className="section-subtitle">

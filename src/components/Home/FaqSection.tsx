@@ -10,7 +10,7 @@ interface FaqSectionProps {
 
 export function FaqSection({ openFaq, setOpenFaq }: FaqSectionProps) {
   return (
-    <section className="faq-section">
+    <section className="faq-section" id="faq" data-section="faq">
       <div className="faq-inner">
         <div className="faq-heading-block">
           <h2 className="faq-heading">FAQ</h2>

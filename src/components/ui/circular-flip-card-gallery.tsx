@@ -429,7 +429,7 @@ export function CircularFlipCardGallery({ onNavigate }: Props) {
                   key={item.id}
                   className={`parma-circular-card-node ${isHovered ? 'is-hovered' : ''} ${isFlipped ? 'is-flipped' : ''}`}
                   style={{
-                    transform: `rotate(${cardAngle}deg) translateY(-340px)`,
+                    transform: `rotate(${cardAngle}deg) translateY(-420px)`,
                   }}
                   onMouseEnter={() => handleMouseEnter(index)}
                   onClick={() => handleCardClick(item, index)}

@@ -54,7 +54,7 @@ const IMMERSION_CARDS = [
 
 export function EnterpriseSection({ onNavigate, gradientClip }: EnterpriseSectionProps) {
   return (
-    <section className="enterprise" aria-label="Sanctuary Immersion">
+    <section className="enterprise" id="sanctuary-immersion" data-section="sanctuary-immersion" aria-label="Sanctuary Immersion">
       <div className="enterprise-container">
         <div className="enterprise-head">
           <span className="ent-kicker">✦ THE COMPLETE RETREAT ✦</span>

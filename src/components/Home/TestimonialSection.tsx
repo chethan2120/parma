@@ -9,7 +9,7 @@ interface TestimonialSectionProps {
 
 export function TestimonialSection({ gradientClip }: TestimonialSectionProps) {
   return (
-    <section className="testimonial testi-trail-host">
+    <section className="testimonial testi-trail-host" id="guest-experience-sanctuary-words" data-section="guest-experience-sanctuary-words">
       <div className="testimonial-inner">
         <div className="testi-heading-block">
           <h2 className="testi-heading" style={gradientClip}>

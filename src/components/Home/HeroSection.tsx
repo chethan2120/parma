@@ -80,7 +80,7 @@ export function HeroSection({ heroRef, onNavigate, onMenuOpen }: HeroSectionProp
   }, [heroRef])
 
   return (
-    <section className="parma-hero-section" ref={heroRef}>
+    <section className="parma-hero-section" id="hero" data-section="hero" ref={heroRef}>
       {/* Terracotta Venetian Plaster Background & Ambient Glows */}
       <div className="parma-hero-plaster-bg" />
 

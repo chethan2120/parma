@@ -14,6 +14,7 @@ import { usePageMotion } from './hooks/usePageMotion'
 // Import subcomponents
 import PartnersSection from './components/PartnersSection'
 import { HeroSection } from './components/Home/HeroSection'
+import { ServicesSection } from './components/Home/ServicesSection'
 import { WhyChooseSection } from './components/Home/WhyChooseSection'
 import { OurWorkSection } from './components/Home/OurWorkSection'
 import CircularFlipCardGallery from './components/ui/circular-flip-card-gallery'
@@ -514,6 +515,15 @@ export default function HomePage({ onMenuOpen, onNavigate }: HomePageProps) {
         onMenuOpen={onMenuOpen}
       />
 
+      {/* ──────────────────── PARMA EXPERIENCES ──────────────────── */}
+      <ServicesSection
+        svcStackRefs={svcStackRefs}
+        gradientClip={gradientClip}
+      />
+
+      {/* ──────────────────── OUR PARTNERS ──────────────────── */}
+      <PartnersSection variant="home" onNavigate={onNavigate} />
+
       {/* ──────────────────── THE PARMA ECOSYSTEM (Circular Ring / Mobile Journey) ──────────────────── */}
       <CircularFlipCardGallery onNavigate={onNavigate} />
 
@@ -526,10 +536,7 @@ export default function HomePage({ onMenuOpen, onNavigate }: HomePageProps) {
       {/* ──────────────────── SANCTUARY IMMERSION (4-Card Grid) ──────────────────── */}
       <EnterpriseSection onNavigate={onNavigate} gradientClip={gradientClip} />
 
-      {/* ──────────────────── OUR PARTNERS ──────────────────── */}
-      <PartnersSection variant="home" onNavigate={onNavigate} />
-
-      {/* ──────────────────── TESTIMONIAL ──────────────────── */}
+      {/* ──────────────────── GUEST EXPERIENCE & SANCTUARY WORDS ──────────────────── */}
       <TestimonialSection gradientClip={gradientClip} />
 
       {/* ──────────────────── FAQ ──────────────────── */}
