@@ -172,7 +172,8 @@ export default function AnimatedSlideshow({ items = PARMA_5_EXPERIENCES, onNavig
   return (
     <section
       className="parma-animated-slideshow-section"
-      id="services-showcase"
+      id="experience-parma"
+      data-section="experience-parma"
       aria-label="Experience Parma"
     >
       <div className="parma-slideshow-plaster-bg" />

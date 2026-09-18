@@ -9,7 +9,7 @@ interface WhyChooseSectionProps {
 
 export function WhyChooseSection({ gradientClip }: WhyChooseSectionProps) {
   return (
-    <section className="process" id="why-parma" aria-label="Why choose Parma">
+    <section className="process" id="why-choose-parma" data-section="why-choose-parma" aria-label="Why choose Parma">
       <div className="process-inner">
         <div className="process-heading-block">
           <h2 className="section-heading-xl" style={gradientClip}>

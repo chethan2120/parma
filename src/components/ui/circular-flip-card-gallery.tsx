@@ -383,6 +383,7 @@ export function CircularFlipCardGallery({ onNavigate }: Props) {
     <section
       className="parma-circular-gallery-section"
       id="parma-ecosystem"
+      data-section="parma-ecosystem"
       onMouseLeave={handleMouseLeave}
       aria-label="The Parma Ecosystem Gallery"
     >

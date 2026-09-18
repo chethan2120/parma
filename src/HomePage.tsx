@@ -14,10 +14,8 @@ import { usePageMotion } from './hooks/usePageMotion'
 // Import subcomponents
 import PartnersSection from './components/PartnersSection'
 import { HeroSection } from './components/Home/HeroSection'
-import { ServicesSection } from './components/Home/ServicesSection'
 import { WhyChooseSection } from './components/Home/WhyChooseSection'
 import { OurWorkSection } from './components/Home/OurWorkSection'
-import { SanctuaryStaySection } from './components/Home/SanctuaryStaySection'
 import CircularFlipCardGallery from './components/ui/circular-flip-card-gallery'
 
 import { EnterpriseSection } from './components/Home/EnterpriseSection'
@@ -516,23 +514,14 @@ export default function HomePage({ onMenuOpen, onNavigate }: HomePageProps) {
         onMenuOpen={onMenuOpen}
       />
 
-      {/* ──────────────────── OUR SERVICES ──────────────────── */}
-      <ServicesSection
-        svcStackRefs={svcStackRefs}
-        gradientClip={gradientClip}
-      />
+      {/* ──────────────────── THE PARMA ECOSYSTEM (Circular Ring / Mobile Journey) ──────────────────── */}
+      <CircularFlipCardGallery onNavigate={onNavigate} />
 
       {/* ──────────────────── WHY CHOOSE PARMA ──────────────────── */}
       <WhyChooseSection gradientClip={gradientClip} />
 
-      {/* ──────────────────── EXPERIENCE PARMA (2-Column Slideshow) ──────────────────── */}
+      {/* ──────────────────── EXPERIENCE PARMA (Editorial Slideshow) ──────────────────── */}
       <OurWorkSection onNavigate={onNavigate} gradientClip={gradientClip} />
-
-      {/* ──────────────────── THE PARMA ECOSYSTEM (Circular Ring / Mobile Journey) ──────────────────── */}
-      <CircularFlipCardGallery onNavigate={onNavigate} />
-
-      {/* ──────────────────── SANCTUARY STAY EXPERIENCE ──────────────────── */}
-      <SanctuaryStaySection onNavigate={onNavigate} gradientClip={gradientClip} />
 
       {/* ──────────────────── SANCTUARY IMMERSION (4-Card Grid) ──────────────────── */}
       <EnterpriseSection onNavigate={onNavigate} gradientClip={gradientClip} />
