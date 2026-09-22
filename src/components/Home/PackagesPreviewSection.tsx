@@ -8,12 +8,6 @@ import {
   getDefaultPackageKey,
   type PkgCategory,
 } from '../../data/packages'
-import {
-  IMG_CHECK_W1,
-  IMG_CHECK_W2,
-  IMG_CHECK_GREEN,
-  IMG_CHECK_TEAL,
-} from '../../data/assets'
 import './PackagesPreviewSection.css'
 
 interface PackagesPreviewSectionProps {
@@ -129,21 +123,10 @@ export function PackagesPreviewSection({
                 <ul className={`pkg-features${isActive ? ' pkg-features--dark' : ''}`}>
                   {tier.features.map((feat, fi) => (
                     <li key={fi}>
-                      <img
-                        src={
-                          isActive
-                            ? fi % 2 === 0
-                              ? IMG_CHECK_W1
-                              : IMG_CHECK_W2
-                            : fi % 2 === 0
-                            ? IMG_CHECK_GREEN
-                            : IMG_CHECK_TEAL
-                        }
-                        alt=""
-                        className="pkg-check"
-                        loading="lazy"
-                        decoding="async"
-                      />
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="pkg-check-svg" style={{ flexShrink: 0, marginTop: 2 }}>
+                        <circle cx="12" cy="12" r="10" stroke={isActive ? "#C49A52" : "#CA6641"} strokeWidth="1.8" fill={isActive ? "rgba(196, 154, 82, 0.2)" : "rgba(202, 106, 65, 0.12)"} />
+                        <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke={isActive ? "#C49A52" : "#CA6641"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
                       {feat}
                     </li>
                   ))}

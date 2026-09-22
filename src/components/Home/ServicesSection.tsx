@@ -4,7 +4,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import LazyVideo from '../LazyVideo'
 import { HOME_SERVICE_CARDS } from '../../data/services'
-import { IMG_BULLET } from '../../data/assets'
 import './ServicesSection.css'
 
 interface ServicesSectionProps {
@@ -81,13 +80,10 @@ export function ServicesSection({ svcStackRefs, gradientClip }: ServicesSectionP
                 <ul className="svc2-benefits">
                   {service.benefits.slice(0, 3).map((item) => (
                     <li key={item} data-svc-reveal>
-                      <img
-                        src={IMG_BULLET}
-                        alt=""
-                        className="svc2-bullet"
-                        loading="lazy"
-                        decoding="async"
-                      />
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="svc2-bullet-svg" style={{ flexShrink: 0, marginTop: 2 }}>
+                        <circle cx="12" cy="12" r="10" stroke="#C69C6D" strokeWidth="1.8" fill="rgba(198, 156, 109, 0.12)" />
+                        <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke="#C69C6D" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
                       <span>{item}</span>
                     </li>
                   ))}

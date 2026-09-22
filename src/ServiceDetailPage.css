@@ -333,15 +333,15 @@
   grid-template-columns: 1fr 0.85fr;
   align-items: end;
   gap: clamp(48px, 10vw, 160px);
-  background: radial-gradient(circle at 88% 0%, rgba(70, 168, 190, 0.16), transparent 42%), #12302f;
-  color: #eef7f6;
+  background: radial-gradient(circle at 88% 0%, rgba(202, 106, 65, 0.16), transparent 42%), #24140F;
+  color: #F5EFE5;
   overflow: hidden;
 }
 .sd-method-copy > span {
-  color: #7fc7c2;
+  color: #C69C6D;
 }
 .sd-method-copy h2 {
-  background: linear-gradient(120deg, #ffffff, #9fd8d3);
+  background: linear-gradient(120deg, #ffffff, #D2AE6D);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

@@ -274,7 +274,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1.5px;
-  background: linear-gradient(120deg, #C49A52, #6fecd0, #2a5bff, #C49A52);
+  background: linear-gradient(120deg, #C49A52, #D2AE6D, #CA6641, #C49A52);
   background-size: 220% 220%;
   opacity: 0;
   pointer-events: none;
@@ -886,7 +886,7 @@
 }
 
 .ca-file-status--ok   { color: #16a34a; }
-.ca-file-status--loading { color: #0ea5e9; }
+.ca-file-status--loading { color: #CA6641; }
 .ca-file-status--warn { color: #d97706; }
 
 .ca-file-clear {

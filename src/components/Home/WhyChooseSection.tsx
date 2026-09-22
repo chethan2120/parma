@@ -1,6 +1,6 @@
 // Done: Updated WhyChooseSection for Parma in Little Washington.
 import React from 'react'
-import { IMG_ICON4, IMG_ICON5, IMG_DEV_ICON } from '../../data/assets'
+import { IMG_DEV_ICON } from '../../data/assets'
 import './WhyChooseSection.css'
 
 interface WhyChooseSectionProps {
@@ -44,14 +44,20 @@ export function WhyChooseSection({ gradientClip }: WhyChooseSectionProps) {
             </p>
             <div className="pc-features">
               <div className="pc-feature">
-                <img src={IMG_ICON4} alt="" className="pc-feature-icon" />
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="pc-feature-icon-svg" style={{ flexShrink: 0 }}>
+                  <circle cx="12" cy="12" r="10" stroke="#C49A52" strokeWidth="1.8" fill="rgba(196, 154, 82, 0.15)" />
+                  <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke="#C49A52" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
                 <div>
                   <strong>Ayurvedic Doctor</strong>
                   <span>Dosha assessment</span>
                 </div>
               </div>
               <div className="pc-feature">
-                <img src={IMG_ICON5} alt="" className="pc-feature-icon" />
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="pc-feature-icon-svg" style={{ flexShrink: 0 }}>
+                  <circle cx="12" cy="12" r="10" stroke="#C49A52" strokeWidth="1.8" fill="rgba(196, 154, 82, 0.15)" />
+                  <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke="#C49A52" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
                 <div>
                   <strong>Natural Therapies</strong>
                   <span>Herbal oil remedies</span>

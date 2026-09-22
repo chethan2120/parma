@@ -59,7 +59,7 @@ export function EnterpriseSection({ onNavigate, gradientClip }: EnterpriseSectio
         <div className="enterprise-head">
           <span className="ent-kicker">✦ THE COMPLETE RETREAT ✦</span>
           <h2 className="ent-heading">
-            <span className="ent-heading-white">Sanctuary </span>
+            <span className="ent-heading-dark">Sanctuary </span>
             <span style={gradientClip}>Immersion</span>
           </h2>
           <p className="ent-subtitle">A complete private retreat blending all four worlds of Parma</p>

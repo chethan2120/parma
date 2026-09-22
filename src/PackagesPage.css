@@ -117,7 +117,7 @@
 }
 
 .pk-country-select:focus-visible {
-  outline: 2px solid #2a5bff;
+  outline: 2px solid #CA6641;
   outline-offset: 3px;
   border-radius: 10px;
 }
@@ -201,8 +201,8 @@
 }
 
 .pk-card-btn--active {
-  background: #2a5bff;
-  border-color: #2a5bff;
+  background: #CA6641;
+  border-color: #CA6641;
   color: #fff;
 }
 
@@ -233,16 +233,16 @@
 }
 
 .pk-card--pro {
-  background: linear-gradient(180deg, #f6f8ff 0%, #edf2ff 100%);
-  border-color: #cdd8ff;
+  background: linear-gradient(180deg, #FAF6F0 0%, #F5EFE5 100%);
+  border-color: #C69C6D;
   color: #32170F;
 }
 
 .pk-card--selected {
-  background: linear-gradient(180deg, #2a5bff 0%, #1f4adc 100%);
+  background: linear-gradient(180deg, #3B1812 0%, #24140F 100%);
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 28px 48px -28px rgba(42, 91, 255, 0.55);
+  box-shadow: 0 28px 48px -28px rgba(59, 24, 18, 0.55);
 }
 
 .pk-card--pro .pk-subtitle,
@@ -261,7 +261,7 @@
 .pk-card--selected .pk-card-btn--active {
   background: #fff;
   border-color: #fff;
-  color: #1f4adc;
+  color: #3B1812;
 }
 
 .pk-card--selected .pk-badge {
@@ -590,8 +590,8 @@
 }
 
 .pk-table-btn--active {
-  background: #2a5bff;
-  border-color: #2a5bff;
+  background: #CA6641;
+  border-color: #CA6641;
   color: #fff;
 }
 
